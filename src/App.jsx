@@ -7,10 +7,10 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path="/" element={<Navigate replace to="/auth/signin" />} />
+        <Route path="/" element={<Navigate replace to="/auth/connexion" />} />
         <Route path="auth">
-          <Route path="signin" element={<SignIn />} />
-          <Route path="signup" element={<SignUp />} />
+          <Route path="connexion" element={<SignIn />} />
+          <Route path="inscription" element={<SignUp />} />
         </Route>
       </Routes>
     </>
