@@ -18,7 +18,7 @@ export default function SignIn() {
 
           <form action="" className="max-w-md mx-auto mt-8 mb-0 space-y-4">
             <div>
-              <label htmlFor="email" className="sr-only">
+              <label htmlFor="email" className="label">
                 Email
               </label>
 
@@ -49,7 +49,7 @@ export default function SignIn() {
             </div>
 
             <div>
-              <label htmlFor="password" className="sr-only">
+              <label htmlFor="password" className="label">
                 Password
               </label>
               <div className="relative">
@@ -87,9 +87,9 @@ export default function SignIn() {
 
             <div className="flex items-center justify-between">
               <p className="text-sm text-gray-500">
-                No account?{" "}
+                Pas de compte?{" "}
                 <a className="underline" href="/auth/inscription">
-                  Sign up
+                  S'inscrire
                 </a>
               </p>
             </div>
