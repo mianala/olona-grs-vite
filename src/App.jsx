@@ -1,6 +1,7 @@
 import { Navigate, Routes, Route } from "react-router-dom";
 import SignIn from "./auth/signin";
 import SignUp from "./auth/signup";
+import AddInfo from "./pages/addInfo";
 import "./App.sass";
 
 function App() {
@@ -8,6 +9,7 @@ function App() {
     <>
       <Routes>
         <Route path="/" element={<Navigate replace to="/auth/connexion" />} />
+        <Route path="/ajout-info" element={<AddInfo />} />
         <Route path="auth">
           <Route path="connexion" element={<SignIn />} />
           <Route path="inscription" element={<SignUp />} />
