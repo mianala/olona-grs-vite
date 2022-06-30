@@ -1,3 +1,6 @@
+import { Navigate, Routes, Route } from "react-router-dom";
+import SignIn from "./auth/signin";
+import SignUp from "./auth/signup";
 import "./App.sass";
 
 function App() {
