@@ -1,11 +1,15 @@
 import { useState, createContext } from "react"
 const ThemeContext = createContext({
   theme: "light",
+  nightMode: false,
+  toggleTheme: () => {},
+  changeTheme: (newTheme) => {},
 })
 export const ThemeContextProvider = ({ children }) => {
   const [theme, setTheme] = useState("light")
   const [nightMode, setNightMode] = useState(false)
   const toggleTheme = () => {
+    console.log("toggle")
     setNightMode((prev) => !prev)
   }
   const changeTheme = (newTheme) => {

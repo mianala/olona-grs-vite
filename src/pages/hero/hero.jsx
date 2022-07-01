@@ -1,47 +1,33 @@
-import { IoIosNotificationsOutline } from "react-icons/io"
+import MainTop from "../../components/top-bar/main-top"
+import { NavLink } from "react-router-dom"
+import logo from "../../assets/logo/logo.svg"
+
 const Hero = () => {
   return (
-    <div className="navbar bg-base-100">
-      <div className="flex-1">
-        <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
-      </div>
-      <div className="flex-none gap-2">
-        <div className="form-control">
-          <input
-            type="text"
-            placeholder="Search"
-            className="input input-bordered"
+    <div className="min-h-screen flex flex-col">
+      <MainTop />
+      <div className="hero bg-base-200 flex-grow">
+        <div className="hero-content flex-col lg:flex-row">
+          <img
+            src="https://placeimg.com/260/400/arch"
+            className="max-w-sm rounded-lg shadow-2xl"
           />
-        </div>
-        <button className="btn btn-ghost btn-circle">
-          <div className="indicator">
-            <IoIosNotificationsOutline className="w-6 h-6" />
-            <span className="badge badge-xs badge-primary indicator-item"></span>
-          </div>
-        </button>
-        <div className="dropdown dropdown-end">
-          <label tabindex="0" className="btn btn-ghost btn-circle avatar">
-            <div className="w-10 rounded-full">
-              <img src="https://placeimg.com/80/80/people" />
+          <div>
+            <img src={logo} alt="" />
+            <p className="py-6">
+              Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
+              excepturi exercitationem quasi. In deleniti eaque aut repudiandae
+              et a id nisi.
+            </p>
+            <div className="flex gap-2">
+              <NavLink to="/auth/inscription">
+                <button className="btn btn-primary">Get Started</button>
+              </NavLink>
+              <NavLink to="/auth/connexion">
+                <button className="btn btn-primary">Sign in</button>
+              </NavLink>
             </div>
-          </label>
-          <ul
-            tabindex="0"
-            className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52"
-          >
-            <li>
-              <a className="justify-between">
-                Profile
-                <span className="badge">New</span>
-              </a>
-            </li>
-            <li>
-              <a>Settings</a>
-            </li>
-            <li>
-              <a>Logout</a>
-            </li>
-          </ul>
+          </div>
         </div>
       </div>
     </div>

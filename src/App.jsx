@@ -10,10 +10,10 @@ import ThemeContext from "./context/theme-context"
 import AuthContext from "./context/auth-context"
 
 function App() {
-  const { theme } = useContext(ThemeContext)
+  const { theme, nightMode } = useContext(ThemeContext)
   const { isLoggedIn } = useContext(AuthContext)
   return (
-    <div data-theme={theme}>
+    <div data-theme={nightMode ? "dark" : "light"}>
       <Routes>
         <Route path="/" element={isLoggedIn ? <MainDashBoard /> : <Hero />} />
 
