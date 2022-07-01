@@ -1,32 +1,38 @@
-import { useState, createContext } from "react"
+import { useState, createContext, useEffect } from "react"
 const NotificationContext = createContext({
-  open: false,
-  toast: [],
+  notification: {
+    type: null,
+    message: null,
+  },
+  notify: (type, message) => () => {},
 })
 export const NotificationContextProvider = ({ children }) => {
-  const [open, setOpen] = useState(false)
-  const [toast, setToast] = useState([])
-  const openToast = (toast, related = false) => {
-    if (related) {
-      setToast([toast])
+  const [toast, setToast] = useState({
+    type: null,
+    message: null,
+  })
+  const notify = (type, message) => () => {
+    setToast({
+      type,
+      message,
+    })
+  }
+  useEffect(() => {
+    if (!toast.type) return
+    const timeout = setTimeout(() => {
+      setToast({
+        type: null,
+        message: null,
+      })
+    }, 5000)
+    return () => {
+      clearTimeout(timeout)
     }
-    setToast((prev) => [...prev, toast])
-    setOpen(true)
-  }
-  const closeToast = () => {
-    setOpen(false)
-    setToast([])
-  }
+  }, [])
   return (
-    <NotificationContext.Provider
-      value={{
-        open,
-        openToast,
-        closeToast,
-        toast,
-      }}
-    >
+    <NotificationContext.Provider value={{ notify, notification: toast }}>
       {children}
     </NotificationContext.Provider>
   )
 }
+export default NotificationContext
