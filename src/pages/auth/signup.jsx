@@ -1,8 +1,45 @@
-import React from "react";
-
+import { NavLink } from "react-router-dom"
+import AuthContext from "../../context/auth-context"
+import { useNavigate } from "react-router-dom"
+import { useContext } from "react"
+import { toast } from "react-toastify"
+import { motion } from "framer-motion"
 export default function SignUp() {
+  const { register } = useContext(AuthContext)
+  const Navigate = useNavigate()
+  const handleRegister = (event) => {
+    event.preventDefault()
+    const data = new FormData(event.currentTarget)
+    const register_data = {
+      email: data.get("email"),
+      password: data.get("password"),
+    }
+    const registering = async () => {
+      const response = await fetch("http://localhost:8000/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(register_data),
+      })
+      const res = await response.json()
+      if (res.jwt) {
+        register(res.jwt)
+        Navigate("/")
+      }
+    }
+    toast.promise(registering, {
+      pending: "Promise is pending",
+      success: "Promise resolved 👌",
+      error: "Promise rejected 🤯",
+    })
+  }
+
   return (
-    <section className="relative flex flex-wrap sm:h-screen sm:items-center  lg:h-screen lg:items-center">
+    <motion.section
+      exit={{ opacity: 0 }}
+      className="relative flex flex-wrap sm:h-screen sm:items-center  lg:h-screen lg:items-center"
+    >
       <div className="relative w-full h-64 sm:h-96 lg:w-1/2 lg:h-full">
         <img
           className="absolute inset-0 object-cover w-full h-full"
@@ -15,7 +52,10 @@ export default function SignUp() {
           <h3 className="text-2xl font-bold sm:text-3xl">Inscription</h3>
         </div>
 
-        <form action="" className="max-w-md mx-auto mt-8 mb-0 space-y-4">
+        <form
+          className="max-w-md mx-auto mt-8 mb-0 space-y-4"
+          onSubmit={handleRegister}
+        >
           <div>
             <label htmlFor="email" className="label">
               Email
@@ -27,6 +67,7 @@ export default function SignUp() {
                 className="w-full p-4 pr-12 text-sm border-gray-200 rounded-lg shadow-sm"
                 placeholder="Entrer addresse email"
                 autoComplete="off"
+                name="email"
               />
 
               <span className="absolute inset-y-0 inline-flex items-center right-4">
@@ -57,6 +98,7 @@ export default function SignUp() {
                 type="password"
                 className="w-full p-4 pr-12 text-sm border-gray-200 rounded-lg shadow-sm"
                 placeholder="Entrer mot de passe"
+                name="password"
               />
 
               <span className="absolute inset-y-0 inline-flex items-center right-4">
@@ -92,6 +134,7 @@ export default function SignUp() {
                 type="password"
                 className="w-full p-4 pr-12 text-sm border-gray-200 rounded-lg shadow-sm"
                 placeholder="Confirmer mot de passe"
+                name="confirmPassword"
               />
 
               <span className="absolute inset-y-0 inline-flex items-center right-4">
@@ -118,18 +161,20 @@ export default function SignUp() {
               </span>
             </div>
           </div>
-          <button className="btn btn-block btn-primary">Connexion</button>
+          <button className="btn btn-block btn-primary" type="submit">
+            Connexion
+          </button>
 
           <div className="flex items-center">
             <p className="text-sm text-gray-500">
               Vous avez déjà un compte?{" "}
-              <a className="underline" href="/auth/connexion">
+              <NavLink className="underline" to="/auth/connexion">
                 Se connecter
-              </a>
+              </NavLink>
             </p>
           </div>
         </form>
       </div>
-    </section>
-  );
+    </motion.section>
+  )
 }

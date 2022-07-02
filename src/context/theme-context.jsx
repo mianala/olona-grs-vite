@@ -9,7 +9,6 @@ export const ThemeContextProvider = ({ children }) => {
   const [theme, setTheme] = useState("light")
   const [nightMode, setNightMode] = useState(false)
   const toggleTheme = () => {
-    console.log("toggle")
     setNightMode((prev) => !prev)
   }
   const changeTheme = (newTheme) => {

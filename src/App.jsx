@@ -10,26 +10,30 @@ import ThemeContext from "./context/theme-context"
 import AuthContext from "./context/auth-context"
 import NotificationContext from "./context/notification-context"
 import { toast, ToastContainer } from "react-toastify"
-import "react-toastify/dist/ReactToastify.css"
+import { useLocation } from "react-router-dom"
+import { AnimatePresence } from "framer-motion"
 
 function App() {
   const { theme, nightMode } = useContext(ThemeContext)
   const { isLoggedIn } = useContext(AuthContext)
   const { notification } = useContext(NotificationContext)
+  const location = useLocation()
   useEffect(() => {
     if (!notification.type) return
     toast[notification.type](notification.message)
   }, [notification])
   return (
     <div data-theme={nightMode ? "dark" : "light"}>
-      <Routes>
-        <Route path="/" element={isLoggedIn ? <MainDashBoard /> : <Hero />} />
-        <Route path="/ajout-info" element={<AddInfo />} />
-        <Route path="auth">
-          <Route path="connexion" element={<SignIn />} />
-          <Route path="inscription" element={<SignUp />} />
-        </Route>
-      </Routes>
+      <AnimatePresence>
+        <Routes location={location} key={location.pathname}>
+          <Route path="/" element={isLoggedIn ? <MainDashBoard /> : <Hero />} />
+          <Route path="/ajout-info" element={<AddInfo />} />
+          <Route path="auth">
+            <Route path="connexion" element={<SignIn />} />
+            <Route path="inscription" element={<SignUp />} />
+          </Route>
+        </Routes>
+      </AnimatePresence>
       <ToastContainer autoClose={5000} limit={4} draggable pauseOnHover />
     </div>
   )
