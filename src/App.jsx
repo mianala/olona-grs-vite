@@ -26,7 +26,8 @@ function App() {
     <div data-theme={nightMode ? "dark" : "light"}>
       <AnimatePresence>
         <Routes location={location} key={location.pathname}>
-          <Route path="/" element={isLoggedIn ? <MainDashBoard /> : <Hero />} />
+          {/* <Route path="/" element={isLoggedIn ? <MainDashBoard /> : <Hero />} /> */}
+          <Route path="/" element={<MainDashBoard />} />
           <Route path="/ajout-info" element={<AddInfo />} />
           <Route path="auth">
             <Route path="connexion" element={<SignIn />} />
