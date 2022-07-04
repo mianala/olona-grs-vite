@@ -1,8 +1,8 @@
-import classes from "./dashlayout.module.sass"
-import MainSideNav from "../side-nav/main-sidenav"
-import MainTopNav from "../top-bar/main-top"
-import { Outlet } from "react-router-dom"
-import { motion } from "framer-motion"
+import classes from "./dashlayout.module.sass";
+import MainSideNav from "../side-nav/main-sidenav";
+import MainTopNav from "../top-bar/main-top";
+import { Outlet } from "react-router-dom";
+import { motion } from "framer-motion";
 const MainDashBoard = () => {
   return (
     <motion.div className={classes.container}>
@@ -18,6 +18,6 @@ const MainDashBoard = () => {
         </main>
       </div>
     </motion.div>
-  )
-}
-export default MainDashBoard
+  );
+};
+export default MainDashBoard;

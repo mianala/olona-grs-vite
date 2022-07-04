@@ -1,7 +1,7 @@
-import logo from "../../assets/logo/logo.svg"
-import { AiOutlineDoubleLeft } from "react-icons/ai"
-import { NavLink } from "react-router-dom"
-import { motion } from "framer-motion"
+import logo from "../../assets/logo/postin.png";
+import { AiOutlineDoubleLeft } from "react-icons/ai";
+import { NavLink } from "react-router-dom";
+import { motion } from "framer-motion";
 
 export default function MainSideNav() {
   return (
@@ -17,7 +17,7 @@ export default function MainSideNav() {
       </motion.button>
       <div className="px-4 py-4">
         <div className="flex items-center justify-start mx-6">
-          <img className="h-9" src={logo} />
+          <img className="h-12" src={logo} />
         </div>
         <nav className="flex flex-col mt-6 space-y-1">
           <a
@@ -303,5 +303,5 @@ export default function MainSideNav() {
         </div>
       </div>
     </div>
-  )
+  );
 }
