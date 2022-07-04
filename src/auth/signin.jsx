@@ -26,7 +26,7 @@ export default function SignIn() {
                 <input
                   type="email"
                   className="w-full p-4 pr-12 text-sm border-gray-200 rounded-lg shadow-sm"
-                  placeholder="Enter email"
+                  placeholder="Entrer votre email"
                 />
 
                 <span className="absolute inset-y-0 inline-flex items-center right-4">
@@ -50,13 +50,13 @@ export default function SignIn() {
 
             <div>
               <label htmlFor="password" className="label">
-                Password
+                Mot de passe
               </label>
               <div className="relative">
                 <input
                   type="password"
                   className="w-full p-4 pr-12 text-sm border-gray-200 rounded-lg shadow-sm"
-                  placeholder="Enter password"
+                  placeholder="Entrer mot de passe"
                 />
 
                 <span className="absolute inset-y-0 inline-flex items-center right-4">

@@ -118,7 +118,9 @@ export default function SignUp() {
               </span>
             </div>
           </div>
-          <button className="btn btn-block btn-primary">Connexion</button>
+          <a className="btn btn-block btn-primary" href="/ajout-info">
+            S'inscrire
+          </a>
 
           <div className="flex items-center">
             <p className="text-sm text-gray-500">

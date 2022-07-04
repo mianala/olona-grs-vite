@@ -1,5 +1,11 @@
 import React from "react";
 
 export default function addInfo() {
-  return <div>addInfo</div>;
+  return (
+    <>
+      <p className="text-3xl font-bold">
+        Ajouter votre information personnelle
+      </p>
+    </>
+  );
 }
