@@ -1,8 +1,41 @@
-import React from "react";
+import { motion } from "framer-motion";
+import AuthContext from "../../context/auth-context";
+import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 export default function SignIn() {
+  const { login } = useContext(AuthContext);
+  const Navigate = useNavigate();
+  const loginHandle = (event) => {
+    event.preventDefault();
+    const data = new FormData(event.currentTarget);
+    const login_data = {
+      email: data.get("email"),
+      password: data.get("password"),
+    };
+    const logining = async () => {
+      const response = await fetch("http://localhost:8000/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(login_data),
+      });
+      const res = await response.json();
+      if (res.jwt) {
+        login(res.jwt);
+        Navigate("/");
+      }
+    };
+    toast.promise(logining, {
+      pending: "Promise is pending",
+      success: "Connecte 👌",
+      error: "Promise rejected 🤯",
+    });
+  };
   return (
-    <>
+    <motion.div>
       <section className="relative flex flex-wrap sm:h-screen sm:items-center  lg:h-screen lg:items-center">
         <div className="relative w-full h-64 sm:h-96 lg:w-1/2 lg:h-full">
           <img
@@ -16,7 +49,11 @@ export default function SignIn() {
             <h3 className="text-2xl font-bold sm:text-3xl">Connexion</h3>
           </div>
 
-          <form action="" className="max-w-md mx-auto mt-8 mb-0 space-y-4">
+          <form
+            action=""
+            className="max-w-md mx-auto mt-8 mb-0 space-y-4"
+            onSubmit={loginHandle}
+          >
             <div>
               <label htmlFor="email" className="label">
                 Email
@@ -27,6 +64,7 @@ export default function SignIn() {
                   type="email"
                   className="w-full p-4 pr-12 text-sm border-gray-200 rounded-lg shadow-sm"
                   placeholder="Entrer votre email"
+                  name="email"
                 />
 
                 <span className="absolute inset-y-0 inline-flex items-center right-4">
@@ -57,6 +95,7 @@ export default function SignIn() {
                   type="password"
                   className="w-full p-4 pr-12 text-sm border-gray-200 rounded-lg shadow-sm"
                   placeholder="Entrer mot de passe"
+                  name="password"
                 />
 
                 <span className="absolute inset-y-0 inline-flex items-center right-4">
@@ -83,7 +122,9 @@ export default function SignIn() {
                 </span>
               </div>
             </div>
-            <button className="btn btn-block btn-secondary">Connexion</button>
+            <button className="btn btn-block btn-secondary" type="submit">
+              Connexion
+            </button>
 
             <div className="flex items-center justify-between">
               <p className="text-sm text-gray-500">
@@ -96,6 +137,6 @@ export default function SignIn() {
           </form>
         </div>
       </section>
-    </>
+    </motion.div>
   );
 }
