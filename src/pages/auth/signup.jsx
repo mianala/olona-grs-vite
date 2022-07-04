@@ -162,7 +162,7 @@ export default function SignUp() {
             </div>
           </div>
           <button className="btn btn-block btn-primary" type="submit">
-            Connexion
+            S'inscrire
           </button>
 
           <div className="flex items-center">
