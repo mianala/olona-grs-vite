@@ -1,19 +1,19 @@
-import { NavLink } from "react-router-dom"
-import AuthContext from "../../context/auth-context"
-import { useNavigate } from "react-router-dom"
-import { useContext } from "react"
-import { toast } from "react-toastify"
-import { motion } from "framer-motion"
+import { NavLink } from "react-router-dom";
+import AuthContext from "../../context/auth-context";
+import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { toast } from "react-toastify";
+import { motion } from "framer-motion";
 export default function SignUp() {
-  const { register } = useContext(AuthContext)
-  const Navigate = useNavigate()
+  const { register } = useContext(AuthContext);
+  const Navigate = useNavigate();
   const handleRegister = (event) => {
-    event.preventDefault()
-    const data = new FormData(event.currentTarget)
+    event.preventDefault();
+    const data = new FormData(event.currentTarget);
     const register_data = {
       email: data.get("email"),
       password: data.get("password"),
-    }
+    };
     const registering = async () => {
       const response = await fetch("http://localhost:8000/register", {
         method: "POST",
@@ -21,19 +21,19 @@ export default function SignUp() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(register_data),
-      })
-      const res = await response.json()
+      });
+      const res = await response.json();
       if (res.jwt) {
-        register(res.jwt)
-        Navigate("/")
+        register(res.jwt);
+        Navigate("/");
       }
-    }
+    };
     toast.promise(registering, {
       pending: "Promise is pending",
       success: "Promise resolved 👌",
       error: "Promise rejected 🤯",
-    })
-  }
+    });
+  };
 
   return (
     <motion.section
@@ -161,15 +161,9 @@ export default function SignUp() {
               </span>
             </div>
           </div>
-<<<<<<< HEAD:src/auth/signup.jsx
-          <a className="btn btn-block btn-primary" href="/ajout-info">
-            S'inscrire
-          </a>
-=======
           <button className="btn btn-block btn-primary" type="submit">
             Connexion
           </button>
->>>>>>> 257c3b555d06c89b628df9bc904827a96b2bffdc:src/pages/auth/signup.jsx
 
           <div className="flex items-center">
             <p className="text-sm text-gray-500">
@@ -182,5 +176,5 @@ export default function SignUp() {
         </form>
       </div>
     </motion.section>
-  )
+  );
 }
