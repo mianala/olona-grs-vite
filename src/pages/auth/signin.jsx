@@ -1,19 +1,19 @@
-import { motion } from "framer-motion"
-import AuthContext from "../../context/auth-context"
-import { useContext } from "react"
-import { useNavigate } from "react-router-dom"
-import { toast } from "react-toastify"
+import { motion } from "framer-motion";
+import AuthContext from "../../context/auth-context";
+import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 export default function SignIn() {
-  const { login } = useContext(AuthContext)
-  const Navigate = useNavigate()
+  const { login } = useContext(AuthContext);
+  const Navigate = useNavigate();
   const loginHandle = (event) => {
-    event.preventDefault()
-    const data = new FormData(event.currentTarget)
+    event.preventDefault();
+    const data = new FormData(event.currentTarget);
     const login_data = {
       email: data.get("email"),
       password: data.get("password"),
-    }
+    };
     const logining = async () => {
       const response = await fetch("http://localhost:8000/login", {
         method: "POST",
@@ -21,19 +21,19 @@ export default function SignIn() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(login_data),
-      })
-      const res = await response.json()
+      });
+      const res = await response.json();
       if (res.jwt) {
-        login(res.jwt)
-        Navigate("/")
+        login(res.jwt);
+        Navigate("/");
       }
-    }
+    };
     toast.promise(logining, {
       pending: "Promise is pending",
       success: "Connecte 👌",
       error: "Promise rejected 🤯",
-    })
-  }
+    });
+  };
   return (
     <motion.div>
       <section className="relative flex flex-wrap sm:h-screen sm:items-center  lg:h-screen lg:items-center">
@@ -63,7 +63,7 @@ export default function SignIn() {
                 <input
                   type="email"
                   className="w-full p-4 pr-12 text-sm border-gray-200 rounded-lg shadow-sm"
-                  placeholder="Enter email"
+                  placeholder="Entrer votre email"
                   name="email"
                 />
 
@@ -88,13 +88,13 @@ export default function SignIn() {
 
             <div>
               <label htmlFor="password" className="label">
-                Password
+                Mot de passe
               </label>
               <div className="relative">
                 <input
                   type="password"
                   className="w-full p-4 pr-12 text-sm border-gray-200 rounded-lg shadow-sm"
-                  placeholder="Enter password"
+                  placeholder="Entrer mot de passe"
                   name="password"
                 />
 
@@ -138,5 +138,5 @@ export default function SignIn() {
         </div>
       </section>
     </motion.div>
-  )
+  );
 }
