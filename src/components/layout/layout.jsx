@@ -7,15 +7,13 @@ import { useMedia } from "react-use"
 const MainDashBoard = () => {
   const isWide = useMedia("(min-width: 860px)")
   return (
-    <div className={classes.container}>
+    <div className={isWide ? classes.container : classes.mobile}>
       <div className={`${classes.sidenav} ${isWide ? "" : "hidden"}`}>
         <MainSideNav />
       </div>
       <div className={classes.top_outlet}>
-        <div>
-          <MainTopNav isWide={isWide} />
-        </div>
-        <main>
+        <MainTopNav isWide={isWide} />
+        <main className="mx-3">
           <Outlet />
         </main>
       </div>

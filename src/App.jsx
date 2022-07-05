@@ -1,6 +1,6 @@
 import "./App.sass"
 import { Routes, Route } from "react-router-dom"
-import MainDashBoard from "./components/dashboard/main-dashboard"
+import Layout from "./components/layout/layout"
 import SignIn from "./pages/auth/signin"
 import SignUp from "./pages/auth/signup"
 import AddInfo from "./pages/insription/add-info"
@@ -13,6 +13,7 @@ import { toast, ToastContainer } from "react-toastify"
 import { useLocation } from "react-router-dom"
 import { AnimatePresence } from "framer-motion"
 import Newfeed from "./components/new-feed/new-feed"
+import DashBoard from "./components/dashboard/dashboard"
 
 function App() {
   const { theme, nightMode } = useContext(ThemeContext)
@@ -27,8 +28,9 @@ function App() {
     <div data-theme={nightMode ? "dark" : "light"}>
       <AnimatePresence>
         <Routes location={location} key={location.pathname}>
-          {/* <Route path="/" element={isLoggedIn ? <MainDashBoard /> : <Hero />} /> */}
-          <Route path="/" element={<MainDashBoard />}>
+          {/* <Route path="/" element={isLoggedIn ? <Layout /> : <Hero />} /> */}
+          <Route path="" element={<Layout />}>
+            <Route path="" element={<DashBoard />} />
             <Route path="feed" element={<Newfeed />} />
           </Route>
           <Route path="/ajout-info" element={<AddInfo />} />

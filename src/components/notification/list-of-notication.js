@@ -1,5 +1,3 @@
-import React from "react"
-
 export const BasicNotification = ({ type, content }) => {
   return (
     <div className={`alert alert-${type} shadow-lg`}>
@@ -11,9 +9,9 @@ export const BasicNotification = ({ type, content }) => {
           viewBox="0 0 24 24"
         >
           <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeLidth="2"
             d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
           />
         </svg>

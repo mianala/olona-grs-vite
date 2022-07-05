@@ -1,5 +1,4 @@
 import logo from "../../assets/logo/postin.png"
-
 import {
   AiOutlineDoubleLeft,
   AiOutlineCheck,
@@ -21,7 +20,6 @@ import { MdManageAccounts, MdAssignmentTurnedIn } from "react-icons/md"
 import {
   IoIosNotificationsOutline,
   IoIosHelpCircleOutline,
-  IoIosLogOut,
 } from "react-icons/io"
 import { BsFillPersonCheckFill } from "react-icons/bs"
 import { BsPen } from "react-icons/bs"
