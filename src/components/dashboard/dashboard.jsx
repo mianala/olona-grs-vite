@@ -1,5 +1,5 @@
-import ChoixCompte from "./choix-compte"
-import CalendarChoix from "./calendar-choix"
+import Calendar from "./calendar-choice"
+import Compte from "./choix-compte"
 import classes from "./dashboard.module.sass"
 import { useReducer } from "react"
 
@@ -32,9 +32,9 @@ function DashBoard() {
     date: null,
   })
   return (
-    <div className={classes.container}>
-      <ChoixCompte dispatch={dispatch} />
-      <CalendarChoix dispatch={dispatch} />
+    <div className={classes.container + " " + "gap-3"}>
+      <Compte dispatch={dispatch} />
+      <Calendar dispatch={dispatch} />
     </div>
   )
 }
