@@ -1,4 +1,5 @@
-import logo from "../../assets/logo/logo.svg"
+import logo from "../../assets/logo/postin.png"
+
 import {
   AiOutlineDoubleLeft,
   AiOutlineCheck,
@@ -28,8 +29,8 @@ import { NavLink } from "react-router-dom"
 export default function MainSideNav() {
   return (
     <div className="px-1 py-3 side-hide flex flex-col justify-between max-h-screen relative shadow-sm overflow-y-auto overflow-x-hidden">
-      <div className="flex items-center justify-between pl-3 ">
-        <img className="h-9" src={logo} />
+      <div className="flex items-center justify-start mx-6">
+        <img className="h-12" src={logo} />
       </div>
       <div className="flex items-center py-1 mt-6 space-x-4 px-3">
         <img

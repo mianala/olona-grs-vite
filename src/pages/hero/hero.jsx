@@ -1,6 +1,6 @@
 import MainTop from "../../components/top-bar/main-top"
 import { NavLink } from "react-router-dom"
-import logo from "../../assets/logo/logo.svg"
+import logo from "../../assets/logo/postin.png"
 import { motion } from "framer-motion"
 
 const Hero = () => {
