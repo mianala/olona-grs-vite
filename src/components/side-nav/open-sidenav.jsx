@@ -30,7 +30,7 @@ export default function MainSideNav() {
       <div className="flex items-center justify-start mx-6">
         <img className="h-12" src={logo} />
       </div>
-      <div className="flex items-center py-1 mt-6 space-x-4 px-3">
+      {/* <div className="flex items-center py-1 mt-6 space-x-4 px-3">
         <img
           src="https://source.unsplash.com/100x100/?portrait"
           alt=""
@@ -50,7 +50,7 @@ export default function MainSideNav() {
             </NavLink>
           </span>
         </div>
-      </div>
+      </div> */}
       <nav className="flex flex-col mt-6 space-y-1">
         <NavLink to="">
           <div className="flex items-center px-4 py-2 text-gray-700 bg-gray-100 rounded-lg">

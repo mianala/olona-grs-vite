@@ -14,6 +14,7 @@ import { useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import Newfeed from "./components/new-feed/new-feed";
 import DashBoard from "./components/dashboard/dashboard";
+import Chat from "./pages/chat";
 import Tasks from "./components/task/tasks";
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
             <Route path="tasks" element={<Tasks />} />
           </Route>
           <Route path="/ajout-info" element={<AddInfo />} />
+          <Route path="/chat" element={<Chat />} />
           <Route path="auth">
             <Route path="connexion" element={<SignIn />} />
             <Route path="inscription" element={<SignUp />} />
