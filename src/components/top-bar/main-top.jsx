@@ -1,19 +1,67 @@
 import { IoIosNotificationsOutline } from "react-icons/io"
 import { useContext } from "react"
 import ThemeContext from "../../context/theme-context"
-const MainTopNav = () => {
+import { GiHamburgerMenu } from "react-icons/gi"
+import OpenSideNav from "../side-nav/open-sidenav"
+import { AiOutlineCloseCircle } from "react-icons/ai"
+const MainTopNav = ({ isWide }) => {
   const { toggleTheme } = useContext(ThemeContext)
   return (
     <div className="navbar bg-base-100">
-      <div className="flex-1"></div>
+      <div className="flex-1 mr-2">
+        {isWide ? (
+          ""
+        ) : (
+          <>
+            <label htmlFor="open-side" className="btn modal-button btn-outline">
+              <GiHamburgerMenu />
+            </label>
+
+            <input type="checkbox" id="open-side" className="modal-toggle" />
+            <label htmlFor="open-side" className="modal cursor-pointer">
+              <div className="modal-box side-hide">
+                <label
+                  htmlFor="open-side"
+                  className="btn btn-circle btn-outline absolute right-5"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-6 w-6"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M6 18L18 6M6 6l12 12"
+                    />
+                  </svg>
+                </label>
+                <OpenSideNav />
+                <div className="modal-action">
+                  <label htmlFor="open-side" className="btn">
+                    close
+                  </label>
+                </div>
+              </div>
+            </label>
+          </>
+        )}
+      </div>
       <div className="flex-none gap-2">
-        <div className="form-control">
-          <input
-            type="text"
-            placeholder="Search"
-            className="input input-bordered"
-          />
-        </div>
+        {isWide ? (
+          <div className="form-control">
+            <input
+              type="text"
+              placeholder="Search"
+              className="input input-bordered"
+            />
+          </div>
+        ) : (
+          ""
+        )}
         <button className="btn btn-ghost btn-circle">
           <div className="indicator">
             <IoIosNotificationsOutline className="w-6 h-6" />

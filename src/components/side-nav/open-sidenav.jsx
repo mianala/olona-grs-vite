@@ -25,17 +25,11 @@ import {
 import { BsFillPersonCheckFill } from "react-icons/bs"
 import { BsPen } from "react-icons/bs"
 import { NavLink } from "react-router-dom"
-import { useState } from "react"
 export default function MainSideNav() {
-  const [navState, setNavState] = useState("open")
-
   return (
     <div className="px-1 py-3 side-hide flex flex-col justify-between max-h-screen relative shadow-sm overflow-y-auto overflow-x-hidden">
       <div className="flex items-center justify-between pl-3 ">
         <img className="h-9" src={logo} />
-        <button className="btn btn-square btn-outline h-3">
-          <AiOutlineDoubleLeft className="w-4 h-4" />
-        </button>
       </div>
       <div className="flex items-center py-1 mt-6 space-x-4 px-3">
         <img
@@ -48,13 +42,13 @@ export default function MainSideNav() {
             {"Tianiazy Marindrano".split(" ")[0]}
           </h2>
           <span className="flex items-center space-x-1">
-            <a
+            <NavLink
               rel="noopener noreferrer"
-              href="#"
+              to="/profile"
               className="text-xs hover:underline dark:text-gray-400"
             >
               Mon Profil
-            </a>
+            </NavLink>
           </span>
         </div>
       </div>
@@ -90,83 +84,83 @@ export default function MainSideNav() {
           </summary>
 
           <nav className="mt-1.5 ml-8 flex flex-col">
-            <a
-              href=""
+            <NavLink
+              to="/tache/finie"
               className="flex items-center px-4 py-2 text-gray-500 rounded-lg hover:bg-gray-100 hover:text-gray-700"
             >
               <AiOutlineCheck />
 
               <span className="ml-3 text-sm font-medium"> Finie </span>
-            </a>
+            </NavLink>
 
-            <a
-              href=""
+            <NavLink
+              to="/tache/en-cours"
               className="flex items-center px-4 py-2 text-gray-500 rounded-lg hover:bg-gray-100 hover:text-gray-700"
             >
               <AiOutlineCalendar />
 
               <span className="ml-3 text-sm font-medium"> Planification </span>
-            </a>
+            </NavLink>
           </nav>
         </details>
 
-        <a
-          href=""
+        <NavLink
+          to="/actualites"
           className="flex items-center px-4 py-2 text-gray-500 rounded-lg hover:bg-gray-100 hover:text-gray-700"
         >
           <CgFeed />
 
           <span className="ml-3 text-sm font-medium"> Fils d' actualites </span>
-        </a>
+        </NavLink>
 
-        <a
-          href=""
+        <NavLink
+          to="reception"
           className="flex items-center px-4 py-2 text-gray-500 rounded-lg hover:bg-gray-100 hover:text-gray-700"
         >
           <FcFeedback />
 
           <span className="ml-3 text-sm font-medium"> Boite de reception </span>
-        </a>
-        <a
-          href=""
+        </NavLink>
+        <NavLink
+          to=""
           className="flex items-center px-4 py-2 text-gray-500 rounded-lg hover:bg-gray-100 hover:text-gray-700"
         >
           <FcSms />
 
           <span className="ml-3 text-sm font-medium"> Conversation </span>
-        </a>
-        <a
-          href=""
+        </NavLink>
+        <NavLink
+          to=""
           className="flex items-center px-4 py-2 text-gray-500 rounded-lg hover:bg-gray-100 hover:text-gray-700"
         >
           <FcPositiveDynamic />
 
           <span className="ml-3 text-sm font-medium"> Statistiques </span>
-        </a>
-        <a
-          href=""
+        </NavLink>
+        <NavLink
+          to=""
           className="flex items-center px-4 py-2 text-gray-500 rounded-lg hover:bg-gray-100 hover:text-gray-700"
         >
           <BsPen />
 
           <span className="ml-3 text-sm font-medium"> Memos et notes </span>
-        </a>
-        <a
-          href=""
+        </NavLink>
+        <NavLink
+          to=""
           className="flex items-center px-4 py-2 text-gray-500 rounded-lg hover:bg-gray-100 hover:text-gray-700"
         >
           <IoIosNotificationsOutline />
 
           <span className="ml-3 text-sm font-medium"> Notification </span>
-        </a>
-        <a
-          href=""
+        </NavLink>
+        <NavLink
+          to=""
           className="flex items-center px-4 py-2 text-gray-500 rounded-lg hover:bg-gray-100 hover:text-gray-700"
         >
           <FcBusinessContact />
 
           <span className="ml-3 text-sm font-medium"> Fiche de prospects </span>
-        </a>
+        </NavLink>
 
         <div className="divider">
           <svg
@@ -184,13 +178,13 @@ export default function MainSideNav() {
             />
           </svg>
         </div>
-        <a
-          href=""
+        <NavLink
+          to=""
           className="flex items-center px-4 py-2 text-gray-500 rounded-lg hover:bg-gray-100 hover:text-gray-700"
         >
           <MdManageAccounts />
           <span className="ml-3 text-sm font-medium">Gerer les comptes</span>
-        </a>
+        </NavLink>
         <details className="group">
           <summary className="flex items-center px-4 py-2 text-gray-500 rounded-lg cursor-pointer hover:bg-gray-100 hover:text-gray-700">
             <FcConferenceCall />
@@ -217,23 +211,23 @@ export default function MainSideNav() {
           </summary>
 
           <nav className="mt-1.5 ml-8 flex flex-col">
-            <a
-              href=""
+            <NavLink
+              to=""
               className="flex items-center px-4 py-2 text-gray-500 rounded-lg hover:bg-gray-100 hover:text-gray-700"
             >
               <BsFillPersonCheckFill />
 
               <span className="ml-3 text-sm font-medium"> Membres </span>
-            </a>
+            </NavLink>
 
-            <a
-              href=""
+            <NavLink
+              to=""
               className="flex items-center px-4 py-2 text-gray-500 rounded-lg hover:bg-gray-100 hover:text-gray-700"
             >
               <MdAssignmentTurnedIn />
 
               <span className="ml-3 text-sm font-medium"> Assigned </span>
-            </a>
+            </NavLink>
           </nav>
         </details>
         <div className="divider">
@@ -252,27 +246,27 @@ export default function MainSideNav() {
             />
           </svg>
         </div>
-        <a
-          href=""
+        <NavLink
+          to=""
           className="flex items-center px-4 py-2 text-gray-500 rounded-lg hover:bg-gray-100 hover:text-gray-700"
         >
           <IoIosHelpCircleOutline />
           <span className="ml-3 text-sm font-medium">Aides et ressources</span>
-        </a>
-        <a
-          href=""
+        </NavLink>
+        <NavLink
+          to=""
           className="flex items-center px-4 py-2 text-gray-500 rounded-lg hover:bg-gray-100 hover:text-gray-700"
         >
           <AiOutlineSetting />
           <span className="ml-3 text-sm font-medium">Parametre</span>
-        </a>
-        <a
-          href=""
+        </NavLink>
+        <NavLink
+          to=""
           className="flex items-center px-4 py-2 text-gray-500 rounded-lg hover:bg-gray-100 hover:text-gray-700"
         >
           <FcAssistant />
           <span className="ml-3 text-sm font-medium">services clients</span>
-        </a>
+        </NavLink>
       </nav>
     </div>
   )
