@@ -1,6 +1,7 @@
 import App from "./App"
 import "./index.sass"
 import "react-toastify/dist/ReactToastify.css"
+import "react-modern-calendar-datepicker/lib/DatePicker.css"
 import ReactDOM from "react-dom/client"
 import { BrowserRouter as Router } from "react-router-dom"
 import { ThemeContextProvider } from "./context/theme-context"
