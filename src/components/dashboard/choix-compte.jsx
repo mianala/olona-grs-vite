@@ -1,12 +1,30 @@
 import { useEffect, useRef, useState } from "react"
 import { personImg } from "../../assets/url/images"
-
+import { MdClear } from "react-icons/md"
+import facebookIcon from "../../assets/social/facebook.svg"
+import instagramIcon from "../../assets/social/instagram.svg"
+import twitterIcon from "../../assets/social/twitter.svg"
+import youtubeIcon from "../../assets/social/youtube.svg"
+import snapchatIcon from "../../assets/social/snapchat.svg"
+import linkedinIcon from "../../assets/social/linkedin.svg"
+import tiktokIcon from "../../assets/social/tiktok.svg"
+const socialIcon = {
+  facebookIcon: facebookIcon,
+  instagramIcon: instagramIcon,
+  twitterIcon: twitterIcon,
+  youtubeIcon: youtubeIcon,
+  snapchatIcon: snapchatIcon,
+  linkedinIcon: linkedinIcon,
+  tiktokIcon: tiktokIcon,
+}
 const CalendarChoix = ({ dispatch }) => {
   const [users, setUsers] = useState([])
   const [search, setSearch] = useState("")
   const [matched, setMatched] = useState([])
   const searchRef = useRef()
   const [available, setAvailable] = useState(null)
+  const [platform, setPlatform] = useState(null)
+
   useEffect(() => {
     const fetchUsers = async () => {
       const res = await fetch("https://randomuser.me/api/?results=10")
@@ -33,31 +51,31 @@ const CalendarChoix = ({ dispatch }) => {
           {
             id: 1,
             social_media: "facebook",
-            manager: `${matched[0].name.first} ${matched[0].name.last}`,
+            manager: "Strawberry",
             intrest: "Marketing",
           },
           {
             id: 2,
             social_media: "twitter",
-            manager: `${matched[0].name.first} ${matched[0].name.last}`,
+            manager: "Tech mark",
             intrest: "Logo",
           },
           {
             id: 3,
             social_media: "instagram",
-            manager: `${matched[0].name.first} ${matched[0].name.last}`,
+            manager: `Lorem ipsum`,
             intrest: "Design",
           },
           {
             id: 4,
             social_media: "youtube",
-            manager: `${matched[0].name.first} ${matched[0].name.last}`,
+            manager: `publicite`,
             intrest: "Video",
           },
           {
             id: 5,
             social_media: "linkedin",
-            manager: `${matched[0].name.first} ${matched[0].name.last}`,
+            manager: `Recruit tech`,
             intrest: "Recruitement",
           },
         ])
@@ -69,43 +87,51 @@ const CalendarChoix = ({ dispatch }) => {
   const clickUser = (user) => {
     setSearch(user)
     dispatch({ type: "setCompte", payload: user })
-    console.log(user)
     setAvailable([
       {
         id: 1,
         social_media: "facebook",
-        manager: user,
+        manager: "Strawberry",
         intrest: "Marketing",
       },
       {
         id: 2,
         social_media: "twitter",
-        manager: user,
+        manager: "Tech mark",
         intrest: "Logo",
       },
       {
         id: 3,
         social_media: "instagram",
-        manager: user,
+        manager: `Lorem ipsum`,
         intrest: "Design",
       },
       {
         id: 4,
         social_media: "youtube",
-        manager: user,
+        manager: `publicite`,
         intrest: "Video",
       },
       {
         id: 5,
         social_media: "linkedin",
-        manager: user,
+        manager: `Recruit tech`,
         intrest: "Recruitement",
       },
     ])
+    setPlatform(null)
+  }
+  const handlePage = (page) => () => {
+    dispatch({ type: "setPlatform", payload: page })
+    setPlatform(page)
+  }
+  const handleClearSearch = () => {
+    setSearch("")
+    setPlatform(null)
   }
   return (
     <div>
-      <div className="form-control w-full max-w-xs">
+      <div className="form-control w-full max-w-xs relative">
         <label className="label">
           <span className="label-text">Choisissez une compte</span>
           <span className="label-text-alt"></span>
@@ -118,27 +144,50 @@ const CalendarChoix = ({ dispatch }) => {
           value={search}
           onChange={(event) => setSearch(event.currentTarget.value)}
         />
+        <button
+          className="absolute p-2 -translate-y-1/2 rounded-full -bottom-2 right-4"
+          type="button"
+          onClick={handleClearSearch}
+        >
+          <MdClear />
+        </button>
       </div>
       <div className="my-5">
         {matched === null
-          ? available?.map(({ id, social_media, manager, intrest }) => {
+          ? available?.map(({ id, social_media, manager, intrest }, index) => {
+              let checked = false
+              if (platform !== null) {
+                if (id === platform.id) {
+                  checked = true
+                }
+              }
               return (
                 <div
-                  className="flex space-x-4 p-2 hover:bg-slate-200 rounded-lg cursor-pointer"
                   key={id}
+                  onClick={handlePage({
+                    id: id,
+                    social_media: social_media,
+                    manager: manager,
+                  })}
                 >
-                  <div>
-                    <img
-                      src={`https://source.unsplash.com/100x100/?${social_media}`}
-                      alt=""
-                      className="object-cover w-12 h-12 rounded-full dark:bg-gray-500"
-                    />
-                  </div>
-                  <div>
-                    <h4 className="font-bold">{manager}</h4>
-                    <span className="text-xs dark:text-gray-400">
-                      {social_media} - {intrest}
-                    </span>
+                  {index === 0 && (
+                    <h6 className="underline pb-2">
+                      Liste de pages pour ce compte
+                    </h6>
+                  )}
+                  <div
+                    className={`flex space-x-4 p-2 hover:bg-emerald-100 cursor-pointer rounded-lg ${
+                      checked ? "bg-emerald-400" : ""
+                    }`}
+                  >
+                    <div>
+                      <img
+                        src={socialIcon[social_media.toLowerCase() + "Icon"]}
+                        alt=""
+                        className="object-cover w-7 h-7 dark:bg-gray-500"
+                      />
+                    </div>
+                    <h5 className="font-bold">{manager}</h5>
                   </div>
                 </div>
               )
@@ -147,7 +196,7 @@ const CalendarChoix = ({ dispatch }) => {
               ({ login: { uuid }, name: { first, last }, img, phone }) => {
                 return (
                   <div
-                    className="flex items-center space-x-3 cursor-pointer hover:bg-slate-200 p-2 rounded-lg"
+                    className="flex items-center space-x-3 cursor-pointer hover:bg-slate-200 p-2  rounded-lg"
                     key={uuid}
                     onClick={() => clickUser(first + " " + last)}
                   >
