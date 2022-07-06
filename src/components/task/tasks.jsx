@@ -22,24 +22,23 @@ export default function Tasks() {
         <input
           type="date"
           placeholder="Type here"
-          class="input input-bordered w-85 max-w-xs"
+          className="input input-bordered w-85 max-w-xs"
         />
         <input
           type="date"
           placeholder="Type here"
-          class="input input-bordered w-85 max-w-xs"
+          className="input input-bordered w-85 max-w-xs"
         />
       </div>
       <hr />
-      <div class="overflow-x-auto">
-        <table class="table w-full">
+      <div className="overflow-x-auto">
+        <table className="table w-full">
           <thead>
             <tr>
               <th>ID</th>
               <th>Firstname</th>
-              <th>Name</th>
-              <th>Job</th>
-              <th>Favorite Color</th>
+              <th>username</th>
+              <th>email</th>
             </tr>
           </thead>
           <tbody>
@@ -69,24 +68,23 @@ export default function Tasks() {
         <input
           type="date"
           placeholder="Type here"
-          class="input input-bordered w-85 max-w-xs"
+          className="input input-bordered w-85 max-w-xs"
         />
         <input
           type="date"
           placeholder="Type here"
-          class="input input-bordered w-85 max-w-xs"
+          className="input input-bordered w-85 max-w-xs"
         />
       </div>
       <hr />
-      <div class="overflow-x-auto">
-        <table class="table w-full">
+      <div className="overflow-x-auto">
+        <table className="table w-full">
           <thead>
             <tr>
               <th>ID</th>
               <th>Firstname</th>
-              <th>Name</th>
-              <th>Job</th>
-              <th>Favorite Color</th>
+              <th>username</th>
+              <th>email</th>
             </tr>
           </thead>
           <tbody>

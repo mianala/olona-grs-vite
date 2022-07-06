@@ -17,6 +17,8 @@ import DashBoard from "./components/dashboard/dashboard";
 import Chat from "./pages/chat";
 import Tasks from "./components/task/tasks";
 
+import Payment from "./pages/payment/payment-method";
+
 function App() {
   const { theme, nightMode } = useContext(ThemeContext);
   const { isLoggedIn } = useContext(AuthContext);
@@ -33,8 +35,9 @@ function App() {
           {/* <Route path="/" element={isLoggedIn ? <Layout /> : <Hero />} /> */}
           <Route path="" element={<Layout />}>
             <Route path="" element={<DashBoard />} />
-            <Route path="feed" element={<Newfeed />} />
+            <Route path="actualites" element={<Newfeed />} />
             <Route path="tasks" element={<Tasks />} />
+            <Route path="payement" element={<Payment />} />
           </Route>
           <Route path="/ajout-info" element={<AddInfo />} />
           <Route path="/chat" element={<Chat />} />

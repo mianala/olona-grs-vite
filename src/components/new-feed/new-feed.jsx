@@ -1,18 +1,18 @@
-import { motion } from "framer-motion"
-import { useEffect, useState } from "react"
+import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 
 export default function Newfeed() {
-  const [product, setProduct] = useState(null)
+  const [product, setProduct] = useState(null);
   useEffect(() => {
     const getProduct = async () => {
-      const productsReq = await fetch("https://fakestoreapi.com/products")
-      const response = await productsReq.json()
-      setProduct(response)
-    }
-    getProduct()
-  }, [])
+      const productsReq = await fetch("https://fakestoreapi.com/products");
+      const response = await productsReq.json();
+      setProduct(response);
+    };
+    getProduct();
+  }, []);
   return (
-    <div className="masonry sm:masonry-sm md:masonry-md my-2 mx-4">
+    <div className="masonry sm:masonry-sm md:masonry-md lg:masonry-lg xl:masonry-xl my-2 mx-4">
       {product?.map(({ id, title, price, description, rating, image }) => (
         <motion.div
           key={id}
@@ -40,5 +40,5 @@ export default function Newfeed() {
         </motion.div>
       ))}
     </div>
-  )
+  );
 }
