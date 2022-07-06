@@ -184,7 +184,7 @@ const CalendarChoix = ({ dispatch }) => {
                       <img
                         src={socialIcon[social_media.toLowerCase() + "Icon"]}
                         alt=""
-                        className="object-cover w-7 h-7 dark:bg-gray-500"
+                        className="object-cover w-7 h-7"
                       />
                     </div>
                     <h5 className="font-bold">{manager}</h5>

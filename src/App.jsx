@@ -17,7 +17,7 @@ import DashBoard from "./components/dashboard/dashboard"
 import Chat from "./pages/chat"
 import Tasks from "./components/task/tasks"
 
-import Payment from "./pages/payment/payment-method";
+import Payment from "./pages/payment/payment-method"
 
 function App() {
   const { theme, nightMode } = useContext(ThemeContext)
@@ -29,7 +29,7 @@ function App() {
     toast[notification.type](notification.message)
   }, [notification])
   return (
-    <div data-theme={nightMode ? "dark" : "light"}>
+    <div data-theme={nightMode ? "dark" : "light"} id="apping">
       <AnimatePresence>
         <Routes location={location} key={location.pathname}>
           {/* <Route path="/" element={isLoggedIn ? <Layout /> : <Hero />} /> */}
@@ -47,7 +47,7 @@ function App() {
           </Route>
         </Routes>
       </AnimatePresence>
-      <ToastContainer autoClose={5000} limit={4} draggable pauseOnHover />
+      <ToastContainer autoClose={5000} limit={3} draggable pauseOnHover />
     </div>
   )
 }

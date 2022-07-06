@@ -1,4 +1,195 @@
-import { Calendar } from "react-modern-calendar-datepicker"
+import { useState } from "react"
+import { Calendar, momentLocalizer } from "react-big-calendar"
+import { IoMdAdd } from "react-icons/io"
+import { MdOutlineClear } from "react-icons/md"
+import { RBCToolbar } from "./calendar-toolbar"
+import { Calendar as DateRange } from "react-modern-calendar-datepicker"
+import { FcCalendar } from "react-icons/fc"
+import { MdDashboard } from "react-icons/md"
+import { AiOutlineArrowDown } from "react-icons/ai"
+import { toast } from "react-toastify"
+import moment from "moment"
+const localizer = momentLocalizer(moment)
+
+const ChoixCompte = () => {
+  const [today, setToday] = useState(new Date())
+  const [openCalendar, setOpenCalendar] = useState(false)
+  const [selectedDayRange, setSelectedDayRange] = useState({
+    from: { year: 2022, month: 7, day: 1 },
+    to: {
+      year: 2022,
+      month: 7,
+      day: 6,
+    },
+  })
+  const [events, setEvents] = useState([
+    {
+      start: moment().toDate(),
+      end: moment().add(1, "days").toDate(),
+      title: "Some title",
+    },
+  ])
+  const createEventHandler = () => {
+    const { year, month, day } = selectedDayRange.from
+    if (selectedDayRange.to === null) {
+      toast.success("Event created")
+      setEvents((prev) => [
+        ...prev,
+        {
+          start: new Date(year, month - 1, day),
+          end: new Date(year, month - 1, day),
+          title: "How are you?",
+        },
+      ])
+      return
+    }
+    const { year: yearTo, month: monthTo, day: dayTo } = selectedDayRange.to
+    const begin = new Date(year, month - 1, day)
+    const end = new Date(yearTo, monthTo - 1, dayTo)
+    setEvents((prev) => [
+      ...prev,
+      {
+        start: begin,
+        end: end,
+        title: <button className="btn">How</button>,
+      },
+    ])
+  }
+  return (
+    <div>
+      <div className="mb-4">
+        <div className="flex bg-base-100 justify-between">
+          <h2 className="card-title">
+            <MdDashboard className="w-6 h-6 mr-4" />
+            Tableau de bord
+          </h2>
+          <div className="flex gap-2">
+            <div className="btn btn-outline flex items-center">
+              <AiOutlineArrowDown className="w-6 h-6 mr-4" />
+              <FcCalendar className="w-6 h-6 mr-4" />
+              {today.toLocaleDateString("fr", {
+                weekday: "long",
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+              })}
+            </div>
+            <div>
+              <label htmlFor="add-event" className="btn modal-button">
+                <IoMdAdd className="w-6 h-6" />
+                Ajouter
+              </label>
+
+              <input type="checkbox" id="add-event" className="modal-toggle" />
+              <label htmlFor="add-event" className="modal cursor-pointer">
+                <label
+                  className="modal-box relative w-11/12 max-w-5xl"
+                  htmlFor=""
+                >
+                  <h3 className="text-lg font-bold">Calendar</h3>
+                  <div className="card card-side bg-base-100">
+                    <div className="card-body">
+                      <label class="text-sm font-medium">Planning</label>
+                      <div class="relative mt-1">
+                        <input
+                          type="text"
+                          placeholder="Type here"
+                          class="input input-bordered input-accent w-full max-w-xs"
+                        />
+                      </div>
+                      <label class="text-sm font-medium">latform</label>
+                      <div class="relative mt-1">
+                        <input
+                          type="text"
+                          placeholder="Type here"
+                          class="input input-bordered input-accent w-full max-w-xs"
+                        />
+                      </div>
+                    </div>
+                    <DateRange
+                      value={selectedDayRange}
+                      onChange={setSelectedDayRange}
+                      colorPrimary="#0fbcf9" // added this
+                      colorPrimaryLight="rgba(75, 207, 250, 0.4)" // and this
+                      shouldHighlightWeekends
+                    />
+                  </div>
+                  <div className="modal-action">
+                    <label htmlFor="add-event" className="btn btn-outline">
+                      cancel
+                      <MdOutlineClear />
+                    </label>
+                    <label
+                      htmlFor="add-event"
+                      className="btn bg-emerald-600"
+                      onClick={createEventHandler}
+                    >
+                      add
+                      <IoMdAdd />
+                    </label>
+                  </div>
+                </label>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <Calendar
+        localizer={localizer}
+        defaultDate={new Date()}
+        defaultView="month"
+        events={events}
+        style={{ height: 700 }}
+        resizable={true}
+        components={{ toolbar: RBCToolbar }}
+      />
+    </div>
+  )
+}
+export default ChoixCompte
+{
+  /*
+  const [openCalendar, setOpenCalendar] = useState(false)
+  const [selectedDayRange, setSelectedDayRange] = useState({
+    from: { year: 2022, month: 7, day: 1 },
+    to: {
+      year: 2022,
+      month: 7,
+      day: 6,
+    },
+  }) */
+  /* <div
+          className={`card card-side bg-base-100 shadow-xl ${
+            openCalendar ? "" : "hidden"
+          }`}
+        >
+          <div className="card-body">
+            <h2 className="card-title">
+              <FcCalendar className="w-6 h-6 mr-4" />
+              Calendar
+            </h2>
+            <p>
+              Pick date on the right <FcRight />
+            </p>
+            <div className="card-actions justify-end">
+              <button
+                className="btn btn-primary"
+                onClick={() => setOpenCalendar(false)}
+              >
+                close
+              </button>
+            </div>
+          </div>
+          <Calendar
+            value={selectedDayRange}
+            onChange={setSelectedDayRange}
+            colorPrimary="#0fbcf9" // added this
+            colorPrimaryLight="rgba(75, 207, 250, 0.4)" // and this
+            shouldHighlightWeekends
+          />
+        </div> 
+        
+        import { Calendar as DateRange } from "react-modern-calendar-datepicker"
 import { useState } from "react"
 import { FcCalendar, FcRight } from "react-icons/fc"
 import { MdDashboard } from "react-icons/md"
@@ -39,41 +230,5 @@ const ChoixCompte = () => {
                 day: "numeric",
               })}
             </div>
-          </div>
-        </div>
-        <div
-          className={`card card-side bg-base-100 shadow-xl ${
-            openCalendar ? "" : "hidden"
-          }`}
-        >
-          <div className="card-body">
-            <h2 className="card-title">
-              <FcCalendar className="w-6 h-6 mr-4" />
-              Calendar
-            </h2>
-            <p>
-              Pick date on the right <FcRight />
-            </p>
-            <div className="card-actions justify-end">
-              <button
-                className="btn btn-primary"
-                onClick={() => setOpenCalendar(false)}
-              >
-                close
-              </button>
-            </div>
-          </div>
-          <Calendar
-            value={selectedDayRange}
-            onChange={setSelectedDayRange}
-            colorPrimary="#0fbcf9" // added this
-            colorPrimaryLight="rgba(75, 207, 250, 0.4)" // and this
-            shouldHighlightWeekends
-          />
-        </div>
-        <div className={`${!openCalendar ? "" : "hidden"}`}></div>
-      </div>
-    </div>
-  )
+        */
 }
-export default ChoixCompte
