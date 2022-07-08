@@ -1,11 +1,11 @@
-import logo from "../../assets/logo/postin.png";
+import logo from "../../assets/logo/postin.png"
 import {
   AiOutlineDoubleLeft,
   AiOutlineCheck,
   AiOutlineCalendar,
   AiOutlineSetting,
-} from "react-icons/ai";
-import { CgFeed } from "react-icons/cg";
+} from "react-icons/ai"
+import { CgFeed } from "react-icons/cg"
 import {
   FcHome,
   FcTodoList,
@@ -15,15 +15,15 @@ import {
   FcBusinessContact,
   FcConferenceCall,
   FcAssistant,
-} from "react-icons/fc";
-import { MdManageAccounts, MdAssignmentTurnedIn } from "react-icons/md";
+} from "react-icons/fc"
+import { MdManageAccounts, MdAssignmentTurnedIn } from "react-icons/md"
 import {
   IoIosNotificationsOutline,
   IoIosHelpCircleOutline,
-} from "react-icons/io";
-import { BsFillPersonCheckFill } from "react-icons/bs";
-import { BsPen } from "react-icons/bs";
-import { NavLink } from "react-router-dom";
+} from "react-icons/io"
+import { BsFillPersonCheckFill } from "react-icons/bs"
+import { BsPen } from "react-icons/bs"
+import { NavLink } from "react-router-dom"
 export default function MainSideNav() {
   return (
     <div className="px-1 py-3 side-hide flex flex-col justify-between max-h-screen relative shadow-sm overflow-y-auto overflow-x-hidden">
@@ -129,7 +129,7 @@ export default function MainSideNav() {
           <span className="ml-3 text-sm font-medium"> Conversation </span>
         </NavLink>
         <NavLink
-          to=""
+          to="statistiques"
           className="flex items-center px-4 py-2 text-gray-500 rounded-lg hover:bg-gray-100 hover:text-gray-700"
         >
           <FcPositiveDynamic />
@@ -268,5 +268,5 @@ export default function MainSideNav() {
         </NavLink>
       </nav>
     </div>
-  );
+  )
 }

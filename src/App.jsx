@@ -12,10 +12,11 @@ import NotificationContext from "./context/notification-context"
 import { toast, ToastContainer } from "react-toastify"
 import { useLocation } from "react-router-dom"
 import { AnimatePresence } from "framer-motion"
-import Newfeed from "./components/new-feed/new-feed"
+import Newfeed from "./pages/new-feed/new-feed"
 import DashBoard from "./components/dashboard/dashboard"
 import Chat from "./pages/chat"
 import Tasks from "./components/task/tasks"
+import Statistique from "./pages/statistique/main-statistic"
 
 import Payment from "./pages/payment/payment-method"
 
@@ -38,6 +39,7 @@ function App() {
             <Route path="actualites" element={<Newfeed />} />
             <Route path="tasks" element={<Tasks />} />
             <Route path="payement" element={<Payment />} />
+            <Route path="statistiques" element={<Statistique />} />
           </Route>
           <Route path="/ajout-info" element={<AddInfo />} />
           <Route path="/chat" element={<Chat />} />

@@ -14,6 +14,7 @@ export const RBCToolbar = (toolbar) => {
     toolbar.onView("agenda")
   }
   const goToBack = () => {
+    // switch case toolbar.view if week setMonth to toolbar.date.getWeek() - 1
     toolbar.date.setMonth(toolbar.date.getMonth() - 1)
     toolbar.onNavigate("prev")
   }
