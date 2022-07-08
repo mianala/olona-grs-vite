@@ -82,14 +82,14 @@ export const RBCToolbar = (toolbar) => {
         >
           Week
         </button>
-        <button
+        {/* <button
           className={`btn btn-outline btn-sm ${
             toolbar.view === "agenda" ? "btn-active" : ""
           }`}
           onClick={goToAgenda}
         >
           Agenda
-        </button>
+        </button> */}
       </div>
     </div>
   )
