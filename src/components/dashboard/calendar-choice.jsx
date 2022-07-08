@@ -74,6 +74,7 @@ const ChoixCompte = () => {
     ])
     setNewEventState("")
     setOpenCalendar(false)
+    toast.success(newEventState)
   }
   return (
     <div>
@@ -123,6 +124,7 @@ const ChoixCompte = () => {
                 month: "long",
                 year: "numeric",
                 hour: "numeric",
+                minute: "numeric",
               })}`}</p>
               <p className="capitalize">{` ${new Date(
                 addToSlot.to
@@ -132,6 +134,7 @@ const ChoixCompte = () => {
                 month: "long",
                 year: "numeric",
                 hour: "numeric",
+                minute: "numeric",
               })}`}</p>
             </div>
           </div>

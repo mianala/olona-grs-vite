@@ -5,7 +5,7 @@ import {
   AiOutlineCalendar,
   AiOutlineSetting,
 } from "react-icons/ai"
-import { CgFeed } from "react-icons/cg"
+import { CgFeed, CgLogOut } from "react-icons/cg"
 import {
   FcHome,
   FcTodoList,
@@ -266,6 +266,13 @@ export default function MainSideNav() {
           <FcAssistant />
           <span className="ml-3 text-sm font-medium">services clients</span>
         </NavLink>
+        <a
+          href="/"
+          className="flex items-center px-4 py-2 text-gray-500 rounded-lg hover:bg-gray-100 hover:text-gray-700"
+        >
+          <CgLogOut />
+          <span className="ml-3 text-sm font-medium">Deconnexion</span>
+        </a>
       </nav>
     </div>
   )
