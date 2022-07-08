@@ -17,7 +17,6 @@ import DashBoard from "./components/dashboard/dashboard"
 import Chat from "./pages/chat"
 import Tasks from "./components/task/tasks"
 import Statistique from "./pages/statistique/main-statistic"
-
 import Payment from "./pages/payment/payment-method"
 
 function App() {
