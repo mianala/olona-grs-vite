@@ -21,10 +21,15 @@ import {
   IoIosNotificationsOutline,
   IoIosHelpCircleOutline,
 } from "react-icons/io"
-import { BsFillPersonCheckFill } from "react-icons/bs"
+import { BsFillPersonCheckFill, BsPencilSquare } from "react-icons/bs"
 import { BsPen } from "react-icons/bs"
 import { NavLink } from "react-router-dom"
+import { useState } from "react"
 export default function MainSideNav() {
+  const [active, setActive] = useState("dashboard")
+  const activeHandler = (clicked) => () => {
+    setActive(clicked)
+  }
   return (
     <div className="px-1 py-3 side-hide flex flex-col justify-between max-h-screen relative shadow-sm overflow-y-auto overflow-x-hidden">
       <div className="flex items-center justify-start mx-6">
@@ -53,10 +58,29 @@ export default function MainSideNav() {
       </div> */}
       <nav className="flex flex-col mt-6 space-y-1">
         <NavLink to="">
-          <div className="flex items-center px-4 py-2 text-gray-700 bg-gray-100 rounded-lg">
+          <div
+            className={`flex items-center px-4 py-2 text-gray-700 rounded-lg + ${
+              active === "dashboard" ? " bg-gray-100" : ""
+            }`}
+          >
             <FcHome />
 
             <span className="ml-3 text-sm font-medium"> Tableau de bord </span>
+          </div>
+        </NavLink>
+        <NavLink to="nouveau-publication">
+          <div
+            className={`flex items-center px-4 py-2 text-gray-700 rounded-lg  ${
+              active === "pub" ? " bg-gray-100" : ""
+            }`}
+            onClick={activeHandler("pub")}
+          >
+            <BsPencilSquare />
+
+            <span className="ml-3 text-sm font-medium">
+              {" "}
+              Crée une publication{" "}
+            </span>
           </div>
         </NavLink>
 

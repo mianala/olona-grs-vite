@@ -18,6 +18,7 @@ import Chat from "./pages/chat"
 import Tasks from "./components/task/tasks"
 import Statistique from "./pages/statistique/main-statistic"
 import Payment from "./pages/payment/payment-method"
+import NewPublication from "./pages/new-publication/new-publicaton"
 
 function App() {
   const { theme, nightMode } = useContext(ThemeContext)
@@ -39,6 +40,7 @@ function App() {
             <Route path="tasks" element={<Tasks />} />
             <Route path="payement" element={<Payment />} />
             <Route path="statistiques" element={<Statistique />} />
+            <Route path="nouveau-publication" element={<NewPublication />} />
           </Route>
           <Route path="/ajout-info" element={<AddInfo />} />
           <Route path="/chat" element={<Chat />} />
