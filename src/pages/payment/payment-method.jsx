@@ -1,27 +1,27 @@
-import React, { useRef, useEffect } from "react"
-import { BsFillCreditCard2FrontFill as Creditcard } from "react-icons/bs"
+import React, { useRef, useEffect } from "react";
+import { BsFillCreditCard2FrontFill as Creditcard } from "react-icons/bs";
 // import CreditCardInput from "react-credit-card-input"
 
 export default function Payment() {
-  const cardNumberRef = useRef()
+  const cardNumberRef = useRef();
 
   let formats = (ele) => {
     if (ele.value.length < 19) {
-      ele.value = ele.value.replace(/\W/gi, "").replace(/(.{4})/g, "$1 ")
-      return true
+      ele.value = ele.value.replace(/\W/gi, "").replace(/(.{4})/g, "$1 ");
+      return true;
     } else {
-      return false
+      return false;
     }
-  }
+  };
 
   let numberValidation = (e) => {
-    e.target.value = e.target.value.replace(/[^\d ]/g, "")
-    return false
-  }
+    e.target.value = e.target.value.replace(/[^\d ]/g, "");
+    return false;
+  };
 
   return (
-    <>
-      <h1 className="font-extrabold text-xl">Methode de Payement</h1>
+    <div className="w-full flex flex-col gap-5 ">
+      <h1 className="font-extrabold text-3xl">Methode de Payement</h1>
       <div className="form-control w-full">
         <label htmlFor="payment-method">
           Choisisser votre methode de payement
@@ -49,7 +49,7 @@ export default function Payment() {
         cardCVCInputProps={{ value: cvc, onChange: this.handleCardCVCChange }}
         fieldClassName="input"
       /> */}
-      {/* <div className="form-control w-full">
+      <div className="form-control w-full">
         <label htmlFor="payment-method">
           Choisisser votre methode de payement
         </label>
@@ -68,7 +68,7 @@ export default function Payment() {
           />
           <Creditcard class="absolute text-gray-500 -translate-y-1/2 pointer-events-none top-1/2 left-4" />
         </div>
-      </div> */}
-    </>
-  )
+      </div>
+    </div>
+  );
 }
