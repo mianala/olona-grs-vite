@@ -1,23 +1,23 @@
-import React, { useRef, useEffect } from "react";
-import { BsFillCreditCard2FrontFill as Creditcard } from "react-icons/bs";
+import React, { useRef, useEffect } from "react"
+import { BsFillCreditCard2FrontFill as Creditcard } from "react-icons/bs"
 // import CreditCardInput from "react-credit-card-input"
 
 export default function Payment() {
-  const cardNumberRef = useRef();
+  const cardNumberRef = useRef()
 
   let formats = (ele) => {
     if (ele.value.length < 19) {
-      ele.value = ele.value.replace(/\W/gi, "").replace(/(.{4})/g, "$1 ");
-      return true;
+      ele.value = ele.value.replace(/\W/gi, "").replace(/(.{4})/g, "$1 ")
+      return true
     } else {
-      return false;
+      return false
     }
-  };
+  }
 
   let numberValidation = (e) => {
-    e.target.value = e.target.value.replace(/[^\d ]/g, "");
-    return false;
-  };
+    e.target.value = e.target.value.replace(/[^\d ]/g, "")
+    return false
+  }
 
   return (
     <div className="w-full flex flex-col gap-5 ">
@@ -54,10 +54,10 @@ export default function Payment() {
           Choisisser votre methode de payement
         </label>
 
-        <div class="relative form-control w-full">
+        <div className="relative form-control w-full">
           <input
             ref={cardNumberRef}
-            class="w-full pl-10 text-sm input-bordered input w-1/3"
+            className="w-full pl-10 text-sm input-bordered input"
             id="cardNumber"
             inputMode="numeric"
             type="tel"
@@ -66,9 +66,9 @@ export default function Payment() {
             // onkeypress={formats}
             // onkeyup={numberValidation}
           />
-          <Creditcard class="absolute text-gray-500 -translate-y-1/2 pointer-events-none top-1/2 left-4" />
+          <Creditcard className="absolute text-gray-500 -translate-y-1/2 pointer-events-none top-1/2 left-4" />
         </div>
       </div>
     </div>
-  );
+  )
 }

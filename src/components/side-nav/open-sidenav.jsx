@@ -1,6 +1,5 @@
 import logo from "../../assets/logo/postin.png"
 import {
-  AiOutlineDoubleLeft,
   AiOutlineCheck,
   AiOutlineCalendar,
   AiOutlineSetting,
@@ -24,9 +23,12 @@ import {
 import { BsFillPersonCheckFill, BsPencilSquare } from "react-icons/bs"
 import { BsPen } from "react-icons/bs"
 import { NavLink } from "react-router-dom"
-import { useState } from "react"
+import { useEffect, useState } from "react"
+import { useLocation } from "react-router-dom"
 export default function MainSideNav() {
+  const location = useLocation()
   const [active, setActive] = useState("dashboard")
+
   const activeHandler = (clicked) => () => {
     setActive(clicked)
   }
@@ -83,8 +85,20 @@ export default function MainSideNav() {
             </span>
           </div>
         </NavLink>
+        <NavLink to="tache-a-faire">
+          <div
+            className={`flex items-center px-4 py-2 text-gray-700 rounded-lg  ${
+              active === "tache-a-faire" ? " bg-gray-100" : ""
+            }`}
+            onClick={activeHandler("tache-a-faire")}
+          >
+            <FcTodoList />
 
-        <details className="group">
+            <span className="ml-3 text-sm font-medium"> Tache a faire </span>
+          </div>
+        </NavLink>
+
+        {/* <details className="group">
           <summary className="flex items-center px-4 py-2 text-gray-500 rounded-lg cursor-pointer hover:bg-gray-100 hover:text-gray-700">
             <FcTodoList />
 
@@ -125,7 +139,7 @@ export default function MainSideNav() {
               <span className="ml-3 text-sm font-medium"> Planification </span>
             </NavLink>
           </nav>
-        </details>
+        </details> */}
 
         <NavLink
           to="/actualites"

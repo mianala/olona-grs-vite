@@ -15,7 +15,7 @@ const NewPublication = () => {
   return (
     <section>
       <div className="max-w-screen-xl px-4 py-4 mx-auto sm:px-6 lg:px-8 relative">
-        <div className="grid grid-cols-1 gap-x-16 gap-y-8 lg:grid-cols-5 bg-white rounded-lg">
+        <div className="grid grid-cols-1 gap-x-16 gap-y-8 lg:grid-cols-5 rounded-lg">
           <div className="pt-8  lg:pt-12 lg:col-span-3">
             <div className="flex justify-between items-center mb-5">
               <h4 className="text-xl font-bold">Creation d' une poste</h4>
@@ -79,7 +79,7 @@ const NewPublication = () => {
                     <div className="flex text-sm text-gray-600">
                       <label
                         htmlFor="file-upload"
-                        className="relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500"
+                        className="relative cursor-pointer rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500"
                       >
                         <span>Upload a file</span>
                         <input
