@@ -41,9 +41,9 @@ function App() {
             <Route path="payement" element={<Payment />} />
             <Route path="statistiques" element={<Statistique />} />
             <Route path="nouveau-publication" element={<NewPublication />} />
+            <Route path="discussion" element={<Chat />} />
           </Route>
           <Route path="/ajout-info" element={<AddInfo />} />
-          <Route path="/chat" element={<Chat />} />
           <Route path="auth">
             <Route path="connexion" element={<SignIn />} />
             <Route path="inscription" element={<SignUp />} />
