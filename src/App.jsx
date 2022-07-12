@@ -20,6 +20,7 @@ import Statistique from "./pages/statistique/main-statistic"
 import Payment from "./pages/payment/payment-method"
 import NewPublication from "./pages/new-publication/new-publicaton"
 import TODOS from "./pages/todos/todos"
+import NotificationList from "./pages/notification/notification-list"
 
 function App() {
   const { theme, nightMode } = useContext(ThemeContext)
@@ -44,6 +45,7 @@ function App() {
             <Route path="nouveau-publication" element={<NewPublication />} />
             <Route path="discussion" element={<Chat />} />
             <Route path="tache-a-faire" element={<TODOS />} />
+            <Route path="notifications" element={<NotificationList />} />
           </Route>
           <Route path="/ajout-info" element={<AddInfo />} />
           <Route path="auth">

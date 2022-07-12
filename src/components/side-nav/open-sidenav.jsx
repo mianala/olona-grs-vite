@@ -183,7 +183,7 @@ export default function MainSideNav() {
           <span className="ml-3 text-sm font-medium"> Memos et notes </span>
         </NavLink>
         <NavLink
-          to=""
+          to="notifications"
           className="flex items-center px-4 py-2 text-gray-500 rounded-lg hover:bg-gray-100 hover:text-gray-700"
         >
           <IoIosNotificationsOutline />
