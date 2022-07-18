@@ -50,8 +50,10 @@ export default function NotificationList() {
                 <span className="font-semibold italic">
                   {notification.cible}
                 </span>
+                {" on "}
+                <span className="">{notification.platform}</span>
               </div>
-              <div>"{notification.text}"</div>
+              <div className="italic font-medium">"{notification.text}"</div>
               <div>{parseDate(notification.duration)}</div>
             </div>
           </div>
