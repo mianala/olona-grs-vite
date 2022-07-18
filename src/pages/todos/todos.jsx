@@ -110,7 +110,7 @@ const TODOS = () => {
     <>
       <div className="flex justify-end">
         <label
-          htmlFor="my-modal-6"
+          htmlhtmlFor="my-modal-6"
           className="btn btn-sm gap-2 mb-3 modal-button"
         >
           open modal

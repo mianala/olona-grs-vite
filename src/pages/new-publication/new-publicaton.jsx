@@ -26,7 +26,7 @@ const NewPublication = () => {
             </div>
             <form action="" className="space-y-4">
               <div>
-                <label className="sr-only" htmlFor="name">
+                <label className="sr-only" htmlhtmlFor="name">
                   Titre
                 </label>
                 <label className="label">
@@ -46,7 +46,7 @@ const NewPublication = () => {
                 <label className="label">
                   <span className="label-text">#mot cles</span>
                 </label>
-                <label className="sr-only" htmlFor="email">
+                <label className="sr-only" htmlhtmlFor="email">
                   Email
                 </label>
                 <input
@@ -57,7 +57,7 @@ const NewPublication = () => {
               </div>
 
               <div>
-                <label className="sr-only" htmlFor="message">
+                <label className="sr-only" htmlhtmlFor="message">
                   Message
                 </label>
                 <label className="label">
@@ -78,7 +78,7 @@ const NewPublication = () => {
                     <BiImageAdd className="w-8 h-8 opacity-50" />
                     <div className="flex text-sm text-gray-600">
                       <label
-                        htmlFor="file-upload"
+                        htmlhtmlFor="file-upload"
                         className="relative cursor-pointer rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500"
                       >
                         <span>Upload a file</span>

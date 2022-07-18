@@ -12,15 +12,15 @@ const MainTopNav = ({ isWide }) => {
           ""
         ) : (
           <>
-            <label htmlFor="open-side" className="btn modal-button btn-outline">
+            <label htmlhtmlFor="open-side" className="btn modal-button btn-outline">
               <GiHamburgerMenu />
             </label>
 
             <input type="checkbox" id="open-side" className="modal-toggle" />
-            <label htmlFor="open-side" className="modal cursor-pointer">
+            <label htmlhtmlFor="open-side" className="modal cursor-pointer">
               <div className="modal-box side-hide">
                 <label
-                  htmlFor="open-side"
+                  htmlhtmlFor="open-side"
                   className="btn btn-circle btn-outline absolute right-5"
                 >
                   <svg
@@ -40,7 +40,7 @@ const MainTopNav = ({ isWide }) => {
                 </label>
                 <OpenSideNav />
                 <div className="modal-action">
-                  <label htmlFor="open-side" className="btn">
+                  <label htmlhtmlFor="open-side" className="btn">
                     close
                   </label>
                 </div>

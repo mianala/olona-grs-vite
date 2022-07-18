@@ -10,7 +10,7 @@ export default function Chat() {
             <div className="search flex-2 pb-6 px-2">
               <form>
                 <label
-                  for="default-search"
+                  htmlFor="default-search"
                   className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-gray-300"
                 >
                   Placeholder

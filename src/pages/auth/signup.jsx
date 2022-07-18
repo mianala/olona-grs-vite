@@ -57,7 +57,7 @@ export default function SignUp() {
           onSubmit={handleRegister}
         >
           <div>
-            <label htmlFor="email" className="label">
+            <label htmlhtmlFor="email" className="label">
               Email
             </label>
 
@@ -90,7 +90,7 @@ export default function SignUp() {
           </div>
 
           <div>
-            <label htmlFor="password" className="label">
+            <label htmlhtmlFor="password" className="label">
               Mot de passe
             </label>
             <div className="relative">
@@ -126,7 +126,7 @@ export default function SignUp() {
             </div>
           </div>
           <div>
-            <label htmlFor="confirmPassword" className="label">
+            <label htmlhtmlFor="confirmPassword" className="label">
               Confirmer mot de passe
             </label>
             <div className="relative">

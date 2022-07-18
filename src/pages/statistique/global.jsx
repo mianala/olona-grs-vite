@@ -1,7 +1,8 @@
 import Resume from "./resume"
 import { FcIdea} from 'react-icons/fc'
-import PostTabel from "./posts-table"
+import PostTabel from "./table-posts"
 const Global = () => {
+    
   return (
     <div>
         <Resume />
