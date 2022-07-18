@@ -25,9 +25,9 @@ export default function Chat() {
                       xmlns="http://www.w3.org/2000/svg"
                     >
                       <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
                         d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
                       ></path>
                     </svg>
@@ -164,9 +164,9 @@ export default function Chat() {
                   <span className="block text-center text-gray-400 hover:text-gray-800">
                     <svg
                       fill="none"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
                       className="h-6 w-6"
@@ -190,9 +190,9 @@ export default function Chat() {
                       <span className="inline-block align-text-bottom">
                         <svg
                           fill="none"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
                           stroke="currentColor"
                           viewBox="0 0 24 24"
                           className="w-6 h-6"
@@ -208,9 +208,9 @@ export default function Chat() {
                         <svg
                           fill="none"
                           stroke="currentColor"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
                           viewBox="0 0 24 24"
                           className="w-4 h-4 text-white"
                         >

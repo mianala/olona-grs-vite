@@ -52,7 +52,7 @@ function App() {
           </Route>
         </Routes>
       </AnimatePresence>
-      <ToastContainer autoClose={5000} limit={3} draggable pauseOnHover />
+      <ToastContainer autoClose={3000} limit={3} draggable pauseOnHover />
     </div>
   )
 }
