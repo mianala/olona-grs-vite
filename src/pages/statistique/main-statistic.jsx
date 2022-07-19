@@ -1,8 +1,8 @@
 
 import {useState} from 'react'
 import Tabs from './tabs'
-import Global from './global'
-import Audience from './audience'
+import Global from './global-stats/global'
+import Audience from './audience/audience'
 const Statistique = () => {
 const [view, setView] = useState('global')
 const changeView = (new_view) => () => {
@@ -11,7 +11,7 @@ const changeView = (new_view) => () => {
   return (
   <div>
     <Tabs changeView={changeView} view={view}  />
-    <div>
+    <div className='mb-5'>
       {view === 'global' ? <Global /> : <Audience />}
     </div>
   </div>

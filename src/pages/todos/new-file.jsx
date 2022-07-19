@@ -91,14 +91,14 @@ export default function NewFile({ addTodo }) {
           <span>Formes</span>
           <div className="flex gap-3">
             <label
-              htmlhtmlFor="my-modal-6"
+              htmlFor="my-modal-6"
               className="btn btn-error gap-2 mb-3 modal-button"
             >
               Cancel
               <BiPlus className="w-4 h-4" />
             </label>
             <label
-              htmlhtmlFor="my-modal-6"
+              htmlFor="my-modal-6"
               className="btn-info btn gap-2 mb-3 modal-button"
               onClick={addItToTodo}
             >

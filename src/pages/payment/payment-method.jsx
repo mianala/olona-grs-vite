@@ -23,7 +23,7 @@ export default function Payment() {
     <div className="w-full flex flex-col gap-5 ">
       <h1 className="font-extrabold text-3xl">Methode de Payement</h1>
       <div className="form-control w-full">
-        <label htmlhtmlFor="payment-method">
+        <label htmlFor="payment-method">
           Choisisser votre methode de payement
         </label>
         <select
@@ -50,7 +50,7 @@ export default function Payment() {
         fieldClassName="input"
       /> */}
       <div className="form-control w-full">
-        <label htmlhtmlFor="payment-method">
+        <label htmlFor="payment-method">
           Choisisser votre methode de payement
         </label>
 

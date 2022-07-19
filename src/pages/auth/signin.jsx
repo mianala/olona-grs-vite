@@ -55,7 +55,7 @@ export default function SignIn() {
             onSubmit={loginHandle}
           >
             <div>
-              <label htmlhtmlFor="email" className="label">
+              <label htmlFor="email" className="label">
                 Email
               </label>
 
@@ -87,7 +87,7 @@ export default function SignIn() {
             </div>
 
             <div>
-              <label htmlhtmlFor="password" className="label">
+              <label htmlFor="password" className="label">
                 Mot de passe
               </label>
               <div className="relative">

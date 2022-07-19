@@ -1,8 +1,10 @@
 import TableHeader from "./table-header"
 import TableContent from "./table-content"
 import { useState } from "react"
-import {AiOutlineHeart, AiOutlineInteraction} from "react-icons/ai"
 import {MdOfflineBolt} from "react-icons/md"
+import {BsFillPersonLinesFill} from "react-icons/bs"
+import {BiCommentDetail} from "react-icons/bi"
+import {RiShareForwardLine} from "react-icons/ri"
 const posts = [{
     userId: 1,
     id: 1,
@@ -99,7 +101,8 @@ const PostTabel = () => {
 </div>
 <input type="checkbox" id="my-modal" className="modal-toggle" checked={open} readOnly/>
         <div className="modal">
-        <div className="modal-box">
+        <div className="modal-box relative md:w-11/12 md:max-w-5xl md:grid md:grid-cols-2 ">
+        <button className="btn btn-sm btn-circle absolute right-2 top-2" onClick={changeState(false)}>✕</button>
             <div>
 
         <div className="flex items-center space-x-3">
@@ -122,45 +125,129 @@ const PostTabel = () => {
     <p className="text-primary font-bold underline">{selected?.title}</p>
           </div>
             <p className="py-4">{selected?.body}</p>
-            <div className="w-full h-full">
-                <img src="http://placeimg.com/1000/500/person" alt="Avatar Tailwind CSS Component" />
+            <div className="w-full">
+                <img src="http://placeimg.com/1000/500/person" className="rounded-md" alt="Avatar Tailwind CSS Component" />
               </div>
-  
-              <section className="flex flex-wrap items-center justify-between">
-		<div className="flex p-4 space-x-4 rounded-lg">
-			<div className="flex justify-center p-2 align-middle rounded-lg sm:p-4 dark:bg-violet-400">
-				<AiOutlineHeart className="w-5 h-5"/>
-			</div>
+              <section className="grid place-items-center bg-gray-300 my-3 py-3 rounded-md">
+<h3>Espace astuces</h3>
+</section>
+              <section className="flex flex-wrap items-center justify-between my-3">
+		
 			<div className="flex flex-col justify-center align-middle">
 				<p className="text-xl font-semibold leading-none">200</p>
 				<p className="capitalize">Like</p>
 			</div>
-		</div>
-		<div className="flex p-4 space-x-4 rounded-lg">
-			<div className="flex justify-center p-2 align-middle rounded-lg sm:p-4 dark:bg-violet-400">
-				<AiOutlineInteraction className="w-5 h-5"/>
-			</div>
+	
 			<div className="flex flex-col justify-center align-middle">
 				<p className="text-xl font-semibold leading-none">7500</p>
 				<p className="capitalize">Interation
                 </p>
 			</div>
-		</div>
-        <btn className="btn btn-info">Boost <MdOfflineBolt className="w-6 h-6 ml-1"/></btn>
+        <button className="btn btn-info">Boost <MdOfflineBolt className="w-6 h-6 ml-1"/></button>
 
 		
 </section>
+
 <div className="flex items-center justify-between">
+    <button className="btn gap-2 btn-outline border-none rounded-none">
+        <BiCommentDetail className="w-5 h-5" />
+        Commenter</button>
+        <div className="tooltip" data-tip="partager dans un groupe">
+    <button className="btn gap-2 btn-outline border-none rounded-none">
+    <RiShareForwardLine className="w-5 h-5" />
+        Partage
+        </button>
+</div>
+        <div className="tooltip" data-tip="Reatribuer">
+
+    <button className="btn m-1 btn-outline border-none">
+  <BsFillPersonLinesFill className="w-5 h-5" />
+  </button>
+        </div>
     
 </div>
-            <div className="modal-action">
-                <label className="btn" onClick={changeState(false)}>Ok!</label>
+            
             </div>
-            </div>
-            <div>
+            <div className="px-2">
+                <h3 className="text-lg font-bold">Performences de votre publication</h3>
+                <div className="divider m-1"></div>
+                <div className="flex gap-2 px-2">
+				<p className="text-xl font-semibold leading-none">189</p>
+				<p className="capitalize">Personne touchée</p>
+			</div>
+                <div className="divider m-1">
+                </div>
+                <div className="flex gap-2 px-2">
+				<p className="text-xl font-semibold leading-none">1</p>
+				<p className="capitalize">Mention j' aime, commentaire et pargtages</p>
+			</div>
+<div className="flex flex-col my-2 gap-1">
+   {[{id: 1, name: "mention j'aime", stats: [12, 5, 7]}, {id: 2, name: "Commentaires", stats: [6, 3, 3]},
+    {id: 3, name: "partages", stats: [3, 1,2]}].map(({id, name, stats}) => <div className="flex gap-2" key={id}>
+        <div className="flex w-1/3 bg-slate-200 flex-col justify-center align-middle p-2">
+				<p className="text-lg font-semibold leading-none">{Math.floor(Math.random()*100)}</p>
+				<p className="capitalize text-blue-800">{name}</p>
+			</div>
+            <div className="flex w-1/3 bg-slate-200 flex-col justify-center align-middle p-2">
+				<p className="text-lg font-semibold leading-none ">{Math.floor(Math.random()*100)}</p>
+				<p className="capitalize text-blue-800">Sur la publication</p>
+			</div>
+            <div className="flex w-1/3 bg-slate-200 flex-col justify-center align-middle p-2">
+				<p className="text-lg font-semibold leading-none ">{Math.floor(Math.random()*100)}</p>
+				<p className="capitalize text-blue-800">Sur les partages</p>
+			</div>
+    </div>
+    )}
+</div>
+<div className="divider m-1" />
 
-            </div>
+<div className="flex gap-2 px-2">
+				<p className="text-xl font-semibold leading-none">189</p>
+				<p className="capitalize">Personne touchée</p>
+			</div>
+<div className="divider m-1" />
 
+            <div className="flex gap-2">
+        <div className="flex w-1/3 bg-slate-200 flex-col justify-center align-middle p-1">
+				<p className="text-lg font-semibold leading-none">{Math.floor(Math.random()*100)}</p>
+				<p className="capitalize text-blue-800">Photos</p>
+			</div>
+            <div className="flex w-1/3 bg-slate-200 flex-col justify-center align-middle p-2">
+				<p className="text-lg font-semibold leading-none ">{Math.floor(Math.random()*100)}</p>
+				<p className="capitalize text-blue-800">Sur la publication</p>
+			</div>
+            <div className="flex w-1/3 bg-slate-200 flex-col justify-center align-middle p-2">
+				<p className="text-lg font-semibold leading-none ">{Math.floor(Math.random()*100)}</p>
+				<p className="capitalize text-blue-800">Sur les partages</p>
+			</div>
+    </div>
+    <div className="divider m-1" />
+    <h3 className="text-lg font-bold">Commentaire negatifs</h3>
+    <div className="flex gap-2">
+        <div className="flex w-1/2 bg-slate-200 flex-col justify-center align-middle p-2">
+				<p className="text-lg font-semibold leading-none">{Math.floor(Math.random()*100)}</p>
+				<p className="capitalize text-blue-800">Masquer publication</p>
+			</div>
+            <div className="flex w-1/2 bg-slate-200 flex-col justify-center align-middle p-2">
+				<p className="text-lg font-semibold leading-none ">{Math.floor(Math.random()*100)}</p>
+				<p className="capitalize text-blue-800">Sur la publication</p>
+			</div>
+            
+    </div>
+    <div className="flex gap-2">
+        <div className="flex w-1/2 bg-slate-200 flex-col justify-center align-middle p-2">
+				<p className="text-lg font-semibold leading-none">{Math.floor(Math.random()*100)}</p>
+				<p className="capitalize text-blue-800">signaler comme indesirable</p>
+			</div>
+            <div className="flex w-1/2 bg-slate-200 flex-col justify-center align-middle p-2">
+				<p className="text-lg font-semibold leading-none ">{Math.floor(Math.random()*100)}</p>
+				<p className="capitalize text-blue-800">Sur la publication</p>
+			</div>
+            
+    </div>
+            </div>
+            
+            
         </div>
     </div>
     </>

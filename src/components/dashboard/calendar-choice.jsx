@@ -170,16 +170,16 @@ const ChoixCompte = () => {
               })}
             </div>
             {/* <div>
-              <label htmlhtmlhtmlFor="add-event" className="btn modal-button">
+              <label htmlhtmlFor="add-event" className="btn modal-button">
                 <IoMdAdd className="w-6 h-6" />
                 Ajouter
               </label>
 
               <input type="checkbox" id="add-event" className="modal-toggle" />
-              <label htmlhtmlhtmlFor="add-event" className="modal cursor-pointer">
+              <label htmlhtmlFor="add-event" className="modal cursor-pointer">
                 <label
                   className="modal-box relative w-11/12 max-w-5xl"
-                  htmlhtmlhtmlFor=""
+                  htmlhtmlFor=""
                 >
                   <h3 className="text-lg font-bold">Calendar</h3>
                   <div className="card card-side bg-base-100">
@@ -210,12 +210,12 @@ const ChoixCompte = () => {
                     />
                   </div>
                   <div className="modal-action">
-                    <label htmlhtmlhtmlFor="add-event" className="btn btn-outline">
+                    <label htmlhtmlFor="add-event" className="btn btn-outline">
                       cancel
                       <MdOutlineClear />
                     </label>
                     <label
-                      htmlhtmlhtmlFor="add-event"
+                      htmlhtmlFor="add-event"
                       className="btn bg-emerald-600"
                       onClick={createEventHandler}
                     >

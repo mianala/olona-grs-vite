@@ -4,11 +4,11 @@ import PostTabel from "./table-posts"
 const Global = () => {
     
   return (
-    <div>
+    <>
         <Resume />
         <Notice />
         <PostTabel />
-    </div>
+    </>
   )
 }
 export default Global
