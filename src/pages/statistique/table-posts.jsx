@@ -2,6 +2,7 @@ import TableHeader from "./table-header"
 import TableContent from "./table-content"
 import { useState } from "react"
 import {AiOutlineHeart, AiOutlineInteraction} from "react-icons/ai"
+import {MdOfflineBolt} from "react-icons/md"
 const posts = [{
     userId: 1,
     id: 1,
@@ -99,6 +100,8 @@ const PostTabel = () => {
 <input type="checkbox" id="my-modal" className="modal-toggle" checked={open} readOnly/>
         <div className="modal">
         <div className="modal-box">
+            <div>
+
         <div className="flex items-center space-x-3">
             <div className="avatar">
               <div className="mask mask-squircle w-12 h-12">
@@ -123,31 +126,41 @@ const PostTabel = () => {
                 <img src="http://placeimg.com/1000/500/person" alt="Avatar Tailwind CSS Component" />
               </div>
   
-              <section className="flex flex-wrap">
-		<div className="flex p-4 space-x-4 rounded-lg md:space-x-6 ">
+              <section className="flex flex-wrap items-center justify-between">
+		<div className="flex p-4 space-x-4 rounded-lg">
 			<div className="flex justify-center p-2 align-middle rounded-lg sm:p-4 dark:bg-violet-400">
 				<AiOutlineHeart className="w-5 h-5"/>
 			</div>
 			<div className="flex flex-col justify-center align-middle">
-				<p className="text-3xl font-semibold leading-none">200</p>
+				<p className="text-xl font-semibold leading-none">200</p>
 				<p className="capitalize">Like</p>
 			</div>
 		</div>
-		<div className="flex p-4 space-x-4 rounded-lg md:space-x-6 ">
+		<div className="flex p-4 space-x-4 rounded-lg">
 			<div className="flex justify-center p-2 align-middle rounded-lg sm:p-4 dark:bg-violet-400">
 				<AiOutlineInteraction className="w-5 h-5"/>
 			</div>
 			<div className="flex flex-col justify-center align-middle">
-				<p className="text-3xl font-semibold leading-none">7500</p>
-				<p className="capitalize">Interation</p>
+				<p className="text-xl font-semibold leading-none">7500</p>
+				<p className="capitalize">Interation
+                </p>
 			</div>
 		</div>
+        <btn className="btn btn-info">Boost <MdOfflineBolt className="w-6 h-6 ml-1"/></btn>
+
 		
 </section>
+<div className="flex items-center justify-between">
+    
+</div>
             <div className="modal-action">
                 <label className="btn" onClick={changeState(false)}>Ok!</label>
-                <label className="btn btn-info" onClick={changeState(false)}>Boost</label>
             </div>
+            </div>
+            <div>
+
+            </div>
+
         </div>
     </div>
     </>

@@ -1,8 +1,24 @@
 import Avatar from "react-nice-avatar"
 import {BiCategoryAlt, BiWorld} from "react-icons/bi"
 import {GiRocketFlight} from "react-icons/gi"
+import { useState } from "react"
+import { useEffectOnce } from "react-use"
 function TableContent({title, body, showModal, id}) {
   const titles = title.split(" ")
+  const [tendance, setTendance] = useState(0)
+  const [interaction, setInteraction] = useState({
+    first: 0,
+    second: 0
+  })
+  useEffectOnce(() => {
+    const tendance = Math.floor(Math.random() * 100)
+    const interaction = {
+      first: Math.floor(Math.random() * 100),
+      second: Math.floor(Math.random() * 100)
+    }
+    setTendance(tendance)
+    setInteraction(interaction)
+  })
   return (   
       <tr>
         <td>
@@ -40,28 +56,40 @@ function TableContent({title, body, showModal, id}) {
         <td >
           <div className="flex justify-between items-center gap-2 ">
             <span>
-              {Math.floor(Math.random() * 100)}
+              {tendance}
               </span>
             <div className="w-full h-6 rounded-md overflow-hidden">
-              <div className={`w-${Math.floor(Math.random() * 9)} h-full bg-orange-500`}></div>
+            <meter id="fuel"
+       min="0" max="100"
+       low="33" high="66" optimum="80"
+       value={tendance}>
+</meter>
             </div>
             </div>
         </td>
         <td>
         <div className="flex justify-between items-center gap-2">
             <span>
-              {Math.floor(Math.random() * 100)}
+              {interaction?.first}
               </span>
             <div className="w-full h-6 rounded-md overflow-hidden">
-              <div className={`w-${Math.floor(Math.random() * 9)} h-full bg-blue-400`}></div>
+            <meter id="fuel"
+       min="0" max="100"
+       low="33" high="66" optimum="80"
+       value={interaction?.first}>
+</meter>
             </div>
             </div>
             <div className="flex justify-between items-center gap-2">
             <span>
-              {Math.floor(Math.random() * 100)}
+              {interaction?.second}
               </span>
             <div className="w-full h-6 rounded-md overflow-hidden">
-              <div className={`w-${Math.floor(Math.random() * 9)} h-full bg-pink-400`}></div>
+            <meter id="fuel"
+       min="0" max="100"
+       low="33" high="66" optimum="80"
+       value={interaction?.second}>
+</meter>
             </div>
             </div>
 
