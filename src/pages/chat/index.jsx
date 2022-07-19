@@ -181,7 +181,7 @@ export default function Chat() {
                     className="w-full block outline-none py-4 px-4 bg-transparent"
                     rows="1"
                     placeholder="Type a message..."
-                    autofocus
+                    autoFocus
                   ></textarea>
                 </div>
                 <div className="flex-2 w-32 p-2 flex content-center items-center">
