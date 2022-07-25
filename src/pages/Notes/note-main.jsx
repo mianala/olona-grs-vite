@@ -1,11 +1,11 @@
+import Container from "./note-container"
+import Side from "./note-side"
 const NoteMain = () => {
     return (
         <div>
-        <h1>Notes</h1>
-        <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Voluptates, quisquam.
-        </p>
+            HI
+        <Side />
+        <Container />
         </div>
     )
 }
