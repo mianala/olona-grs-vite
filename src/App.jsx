@@ -21,6 +21,7 @@ import Payment from "./pages/payment/payment-method"
 import NewPublication from "./pages/new-publication/new-publicaton"
 import TODOS from "./pages/todos/todos"
 import NotificationList from "./pages/notification/notification-list"
+import NoteMain from "./pages/notes/note-main"
 
 function App() {
   const { theme, nightMode } = useContext(ThemeContext)
@@ -46,6 +47,7 @@ function App() {
             <Route path="discussion" element={<Chat />} />
             <Route path="tache-a-faire" element={<TODOS />} />
             <Route path="notifications" element={<NotificationList />} />
+            <Route path="notes" element={<NoteMain />} />
           </Route>
           <Route path="/ajout-info" element={<AddInfo />} />
           <Route path="auth">
