@@ -24,5 +24,3 @@ dist-ssr
 *.sw?
 .yarn/releases/yarn-1.22.19.cjs
 .yarnrc
-
-src/pages/notes
