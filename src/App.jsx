@@ -21,7 +21,7 @@ import Payment from "./pages/payment/payment-method"
 import NewPublication from "./pages/new-publication/new-publicaton"
 import TODOS from "./pages/todos/todos"
 import NotificationList from "./pages/notification/notification-list"
-import NoteMain from "./pages/notes/note-main"
+import NoteMain from "./pages/notes/a-note-main"
 
 function App() {
   const { theme, nightMode } = useContext(ThemeContext)

@@ -1,11 +1,10 @@
-import Container from "./note-container"
-import Side from "./note-side"
+// import Container from "./note-container"
+// import Side from "./note-side"
 const NoteMain = () => {
     return (
         <div>
-            HI
-        <Side />
-        <Container />
+        {/* <Side />
+        <Container /> */}
         </div>
     )
 }
