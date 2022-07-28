@@ -11,7 +11,6 @@ const NoteContent = ({
           <h3 className="leading-7 font-semibold">{title}</h3>
           <p className="leading-7 m-2">{content}</p>
         </div>
-
         <div>
           <div className="mb-3 flex items-center">
             <div

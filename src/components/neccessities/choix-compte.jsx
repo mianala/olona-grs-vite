@@ -1,53 +1,9 @@
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useRef, useState, useContext } from "react"
 import { personImg } from "../../assets/url/images"
 import { MdClear } from "react-icons/md"
-import facebookIcon from "../../assets/social/facebook.svg"
-import instagramIcon from "../../assets/social/instagram.svg"
-import twitterIcon from "../../assets/social/twitter.svg"
-import youtubeIcon from "../../assets/social/youtube.svg"
-import snapchatIcon from "../../assets/social/snapchat.svg"
-import linkedinIcon from "../../assets/social/linkedin.svg"
-import tiktokIcon from "../../assets/social/tiktok.svg"
-const socialIcon = {
-  facebookIcon: facebookIcon,
-  instagramIcon: instagramIcon,
-  twitterIcon: twitterIcon,
-  youtubeIcon: youtubeIcon,
-  snapchatIcon: snapchatIcon,
-  linkedinIcon: linkedinIcon,
-  tiktokIcon: tiktokIcon,
-}
-const CalendarChoix = ({ dispatch }) => {
-  const [users, setUsers] = useState([])
-  const [search, setSearch] = useState("")
-  const [matched, setMatched] = useState([])
-  const searchRef = useRef()
-  const [available, setAvailable] = useState(null)
-  const [platform, setPlatform] = useState(null)
-
-  useEffect(() => {
-    const fetchUsers = async () => {
-      const res = await fetch("https://randomuser.me/api/?results=10")
-      const data = await res.json()
-      const result = data.results.map((data, index) => {
-        return { ...data, img: personImg[index].urls.small }
-      })
-      setUsers(result)
-      setMatched(result)
-    }
-    fetchUsers()
-  }, [])
-  useEffect(() => {
-    const matched = users.filter((user) => {
-      return `${user.name.first} ${user.name.last}`
-        .toLowerCase()
-        .includes(search.toLowerCase())
-    })
-    if (matched.length === 1) {
-      if (`${matched[0].name.first} ${matched[0].name.last}` === search) {
-        setMatched(null)
-        dispatch({ type: "setCompte", payload: matched[0] })
-        setAvailable([
+import AccountContext from "../../context/account-context"
+import {socialIcon} from "../../components/neccessities/icon"
+const dummy_ava  = [
           {
             id: 1,
             social_media: "facebook",
@@ -78,7 +34,39 @@ const CalendarChoix = ({ dispatch }) => {
             manager: `Recruit tech`,
             intrest: "Recruitement",
           },
-        ])
+        ]
+
+export default function CalendarChoix () {
+  const AccountCtx = useContext(AccountContext)
+  const searchRef = useRef()
+  const [users, setUsers] = useState([])
+  const [search, setSearch] = useState("")
+  const [matched, setMatched] = useState([])
+  const [available, setAvailable] = useState(null)
+  const [platform, setPlatform] = useState(null)
+
+  useEffect(() => {
+    const fetchUsers = async () => {
+      const res = await fetch("https://randomuser.me/api/?results=10")
+      const data = await res.json()
+      const result = data.results.map((data, index) => {
+        return { ...data, img: personImg[index].urls.small }
+      })
+      setUsers(result)
+      setMatched(result)
+    }
+    fetchUsers()
+  }, [])
+  useEffect(() => {
+    const matched = users.filter((user) => {
+      return `${user.name.first} ${user.name.last}`
+        .toLowerCase()
+        .includes(search.toLowerCase())
+    })
+    if (matched.length === 1) {
+      if (`${matched[0].name.first} ${matched[0].name.last}` === search) {
+        setMatched(null)
+        setAvailable(dummy_ava)
         return
       }
     }
@@ -86,43 +74,10 @@ const CalendarChoix = ({ dispatch }) => {
   }, [search])
   const clickUser = (user) => {
     setSearch(user)
-    dispatch({ type: "setCompte", payload: user })
-    setAvailable([
-      {
-        id: 1,
-        social_media: "facebook",
-        manager: "Strawberry",
-        intrest: "Marketing",
-      },
-      {
-        id: 2,
-        social_media: "twitter",
-        manager: "Tech mark",
-        intrest: "Logo",
-      },
-      {
-        id: 3,
-        social_media: "instagram",
-        manager: `Lorem ipsum`,
-        intrest: "Design",
-      },
-      {
-        id: 4,
-        social_media: "youtube",
-        manager: `publicite`,
-        intrest: "Video",
-      },
-      {
-        id: 5,
-        social_media: "linkedin",
-        manager: `Recruit tech`,
-        intrest: "Recruitement",
-      },
-    ])
+    setAvailable(dummy_ava)
     setPlatform(null)
   }
   const handlePage = (page) => () => {
-    dispatch({ type: "setPlatform", payload: page })
     setPlatform(page)
   }
   const handleClearSearch = () => {
@@ -220,4 +175,3 @@ const CalendarChoix = ({ dispatch }) => {
     </div>
   )
 }
-export default CalendarChoix
