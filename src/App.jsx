@@ -27,10 +27,12 @@ function App() {
   const { isLoggedIn } = useContext(AuthContext)
   const { notification } = useContext(NotificationContext)
   const location = useLocation()
+  
   useEffect(() => {
     if (!notification.type) return
     toast[notification.type](notification.message)
   }, [notification])
+
   return (
     <div data-theme={nightMode ? "dark" : "light"} id="apping">
       <AnimatePresence>

@@ -4,6 +4,7 @@ import { FcReadingEbook } from "react-icons/fc"
 import { IoMdAdd } from "react-icons/io"
 import { MdOutlineClear } from "react-icons/md"
 import { RBCToolbar } from "./calendar-toolbar"
+import SocialList from "../../components/layout/social-list"
 // import { Calendar as DateRange } from "react-modern-calendar-datepicker"
 import { FcCalendar } from "react-icons/fc"
 import { MdDashboard } from "react-icons/md"
@@ -229,6 +230,7 @@ const ChoixCompte = () => {
           </div>
         </div>
       </div>
+      <SocialList />
       <Calendar
         localizer={localizer}
         defaultDate={new Date()}

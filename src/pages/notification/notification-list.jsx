@@ -1,18 +1,19 @@
-import React from "react"
 import { FiMoreVertical } from "react-icons/fi"
 import notifications from "../../assets/fakedata/notifications.json"
+import SocialList from "../../components/layout/social-list"
 
 export default function NotificationList() {
   const parseDate = (input) => {
     return new Date(input).toISOString().split("T")[0]
   }
   return (
-    <div className="mx-40 flex-col gap-5 flex">
+    <div className="mx-3 flex-col gap-5 flex">
       <div className="flex justify-between">
         <span>Liste des notifications</span>
         <FiMoreVertical />
       </div>
       <hr />
+      <SocialList />
       <div className="flex gap-3">
         <div className="badge badge-primary">Tous</div>
         <div className="badge badge-ghost">non lus</div>

@@ -7,6 +7,7 @@ const AccountContext = createContext({
     },
     changeClient: (account, page, social) => {},
 })
+
 export const AccountContextProvider = ({ children }) => {
     const [client, setClient] = useState({
         account: null,
@@ -31,4 +32,5 @@ export const AccountContextProvider = ({ children }) => {
         </AccountContext.Provider>
     )
 }
+
 export default AccountContext

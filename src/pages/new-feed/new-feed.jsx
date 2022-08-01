@@ -2,6 +2,7 @@ import { motion } from "framer-motion"
 import { useEffect, useState } from "react"
 import { FcCalendar } from "react-icons/fc"
 import { FcNews } from "react-icons/fc"
+import SocialList from "../../components/layout/social-list"
 
 export default function Newfeed() {
   
@@ -35,6 +36,7 @@ export default function Newfeed() {
             </div>
           </div>
         </div>
+        <SocialList />
         <hr className="mb-5 mx-10" />
         <div className="masonry md:masonry-sm lg:masonry-md xl:masonry-lg overflow-wrap-anywhere my-2 w-auto mx-4">
           {product?.map(({ id, title, price, description, rating, image }) => (

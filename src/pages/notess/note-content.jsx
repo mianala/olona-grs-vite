@@ -20,11 +20,13 @@ const NoteContent = ({
             >
               <MdAccessTime />
               <p className="ml-2">
-                {dueon.toLocaleString("fr", {
+                {new Date().toLocaleString("fr", {
                   day: "numeric",
                   month: "long",
                 })}{" "}
-                {time}
+                {new Date().toLocaleString("fr", {
+                  hour: 'numeric'
+                })}
               </p>
             </div>
             <button
@@ -37,7 +39,7 @@ const NoteContent = ({
           </div>
           <div className="flex items-center justify-between text-gray-800">
             <p className="text-sm capitalize">
-              {dueon.toLocaleString("fr", {
+              {new Date().toLocaleString("fr", {
                 month: "long",
                 weekday: "long",
                 year: "numeric",

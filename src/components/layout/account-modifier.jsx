@@ -2,7 +2,7 @@ import { useEffect, useRef, useState, useContext } from "react"
 import { personImg } from "../../assets/url/images"
 import { MdClear } from "react-icons/md"
 import AccountContext from "../../context/account-context"
-import {socialIcon} from "../../components/neccessities/icon"
+import {socialIcon} from "../neccessities/icon"
 const dummy_ava  = [
           {
             id: 1,
@@ -36,17 +36,18 @@ const dummy_ava  = [
           },
         ]
 
-export default function CalendarChoix () {
-  const AccountCtx = useContext(AccountContext)
+export default function AccountModifier () {
+  const {client, changeClient} = useContext(AccountContext)
   const searchRef = useRef()
   const [users, setUsers] = useState([])
   const [search, setSearch] = useState("")
   const [matched, setMatched] = useState([])
   const [available, setAvailable] = useState(null)
-  const [platform, setPlatform] = useState(null)
+  const [social, setSocial] = useState(null)
+  const [socialPage, setSocialPage] = useState(null)
 
   useEffect(() => {
-    const fetchUsers = async () => {
+    (async () => {
       const res = await fetch("https://randomuser.me/api/?results=10")
       const data = await res.json()
       const result = data.results.map((data, index) => {
@@ -54,8 +55,7 @@ export default function CalendarChoix () {
       })
       setUsers(result)
       setMatched(result)
-    }
-    fetchUsers()
+    })()
   }, [])
   useEffect(() => {
     const matched = users.filter((user) => {
@@ -72,17 +72,23 @@ export default function CalendarChoix () {
     }
     setMatched(matched)
   }, [search])
+  
   const clickUser = (user) => {
     setSearch(user)
     setAvailable(dummy_ava)
-    setPlatform(null)
+    setSocial(null)
   }
   const handlePage = (page) => () => {
-    setPlatform(page)
+    setSocial(page)
+    changeClient({
+      social: page,
+      account: matched,
+      page: socialPage,
+    })
   }
   const handleClearSearch = () => {
     setSearch("")
-    setPlatform(null)
+    setSocial(null)
   }
   return (
     <div>
@@ -111,8 +117,8 @@ export default function CalendarChoix () {
         {matched === null
           ? available?.map(({ id, social_media, manager, intrest }, index) => {
               let checked = false
-              if (platform !== null) {
-                if (id === platform.id) {
+              if (social !== null) {
+                if (id === social.id) {
                   checked = true
                 }
               }

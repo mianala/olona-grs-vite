@@ -8,7 +8,7 @@ const AudienceVille = () => {
             <div className="flex flex-col">
                 {Cities.map(({lng, city}) => { 
                 const value = Math.floor(Math.random() * 100)
-            return <div className="grid grid-cols-3">
+            return <div className="grid grid-cols-3" key={lng}>
                 <p className="text-md">{city} {" "}
                 </p>
                 <p>{value}%</p>
@@ -25,7 +25,7 @@ const AudienceVille = () => {
         <div className="flex flex-col">
             {Pays.map(({code, name}) => { 
                 const value = Math.floor(Math.random() * 100)
-            return <div className="grid grid-cols-3">
+            return <div className="grid grid-cols-3" key={code}>
                                <p className="text-md">{name} </p>
                                <p>
                                 {value}%</p>

@@ -5,6 +5,7 @@ import twitterIcon from "../../assets/social/twitter.svg"
 import youtubeIcon from "../../assets/social/youtube.svg"
 import snapchatIcon from "../../assets/social/snapchat.svg"
 import linkedinIcon from "../../assets/social/linkedin.svg"
+import upworkIcon from "../../assets/social/upwork.svg"
 
 export const socialIcon = {
   facebookIcon: facebookIcon,
@@ -14,4 +15,5 @@ export const socialIcon = {
   snapchatIcon: snapchatIcon,
   linkedinIcon: linkedinIcon,
   tiktokIcon: tiktokIcon,
+  upworkIcon: upworkIcon,
 }

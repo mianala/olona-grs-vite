@@ -16,7 +16,6 @@ import {GrFormClose} from 'react-icons/gr'
         })
         add(newNotes)
       form.current.reset()
-
     }
     const handleOpen = (event) => () => {
       setOpen(event)
@@ -68,7 +67,9 @@ import {GrFormClose} from 'react-icons/gr'
                                   })}
                                 </select>
                             </div>
-                            <div className='flex justify-between'>
+        <div className="divider"></div>
+
+                            {/* <div className='flex justify-between'>
 
                             <div className="mt-4 flex flex-col">
                                 <label htmlFor="date" className="pb-2 text-sm font-bold">
@@ -93,7 +94,7 @@ import {GrFormClose} from 'react-icons/gr'
                   className="input input-bordered my-2 w-36"
                   ></input>
                     </div>
-                            </div>
+                            </div> */}
 
                 </div>
                 </div>
