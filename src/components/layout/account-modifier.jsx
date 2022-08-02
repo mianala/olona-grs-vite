@@ -2,42 +2,42 @@ import { useEffect, useRef, useState, useContext } from "react"
 import { personImg } from "../../assets/url/images"
 import { MdClear } from "react-icons/md"
 import AccountContext from "../../context/account-context"
-import {socialIcon} from "../neccessities/icon"
-const dummy_ava  = [
-          {
-            id: 1,
-            social_media: "facebook",
-            manager: "Strawberry",
-            intrest: "Marketing",
-          },
-          {
-            id: 2,
-            social_media: "twitter",
-            manager: "Tech mark",
-            intrest: "Logo",
-          },
-          {
-            id: 3,
-            social_media: "instagram",
-            manager: `Lorem ipsum`,
-            intrest: "Design",
-          },
-          {
-            id: 4,
-            social_media: "youtube",
-            manager: `publicite`,
-            intrest: "Video",
-          },
-          {
-            id: 5,
-            social_media: "linkedin",
-            manager: `Recruit tech`,
-            intrest: "Recruitement",
-          },
-        ]
+import { socialIcon } from "../neccessities/icon"
+const dummy_ava = [
+  {
+    id: 1,
+    social_media: "facebook",
+    manager: "Strawberry",
+    intrest: "Marketing",
+  },
+  {
+    id: 2,
+    social_media: "twitter",
+    manager: "Tech mark",
+    intrest: "Logo",
+  },
+  {
+    id: 3,
+    social_media: "instagram",
+    manager: `Lorem ipsum`,
+    intrest: "Design",
+  },
+  {
+    id: 4,
+    social_media: "youtube",
+    manager: `publicite`,
+    intrest: "Video",
+  },
+  {
+    id: 5,
+    social_media: "linkedin",
+    manager: `Recruit tech`,
+    intrest: "Recruitement",
+  },
+]
 
-export default function AccountModifier () {
-  const {client, changeClient} = useContext(AccountContext)
+export default function AccountModifier() {
+  const { client, changeClient } = useContext(AccountContext)
   const searchRef = useRef()
   const [users, setUsers] = useState([])
   const [search, setSearch] = useState("")
@@ -47,7 +47,7 @@ export default function AccountModifier () {
   const [socialPage, setSocialPage] = useState(null)
 
   useEffect(() => {
-    (async () => {
+    ;(async () => {
       const res = await fetch("https://randomuser.me/api/?results=10")
       const data = await res.json()
       const result = data.results.map((data, index) => {
@@ -72,7 +72,7 @@ export default function AccountModifier () {
     }
     setMatched(matched)
   }, [search])
-  
+
   const clickUser = (user) => {
     setSearch(user)
     setAvailable(dummy_ava)

@@ -227,7 +227,7 @@ const MainTopNav = ({ isWide }) => {
             <li>
               <a>Logout</a>
             </li>
-            <li>
+            {/* <li>
               <label className="label cursor-pointer flex justify-between p-2">
                 <span className="label-text">Dark Theme</span>
                 <input
@@ -236,7 +236,7 @@ const MainTopNav = ({ isWide }) => {
                   onChange={() => toggleTheme()}
                 />
               </label>
-            </li>
+            </li> */}
           </ul>
         </div>
       </div>
